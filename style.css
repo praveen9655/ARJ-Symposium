@@ -1,18 +1,18 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Barlow', sans-serif;
 }
-body{
+.bd1{
     background-color: #05112e;
 }
-nav{
+nav p{
     color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    font-family: 'barlow';     
     font-size: 25px;
-    font-weight: lighter;
+    font-weight: 200;
+}
+nav{
     background-color: rgba(227,228,233,.16);
     box-shadow: 0 50px 100px -20px rgba(50,50,93,.25), 0 30px 60px -30px rgba(0,0,0,.3);
     z-index: 100;
@@ -21,29 +21,18 @@ nav{
     top: 0px;
     height: 100px;
     backdrop-filter: blur(10px);
+    
 }
-nav img{
-    margin-right: 20px;
-}
-nav div{
-    display: flex;
-    width: 80%;
-    justify-content: start;
-    align-items: center;
-}
-.home{
-    display: flex;
+.main1{
     height: 100vh;
-    justify-content: center;
-    align-items: center;
     color: #fff;
     letter-spacing: .02em;
 }
-.home_inside{
-    width: 50%;
-}
+
 .home_inside h3 , p{
     color: #949aad;
+    font-family: 'barlow';
+    font-weight: bold;
 }
 .home_inside h5{
     font-weight: normal;
@@ -60,12 +49,53 @@ nav div{
     font-size: clamp(2.25rem,1.942rem + 1.315vw,3.125rem);
 }
 .home_inside button{
-    padding: 10px;
-    width: 100px;
     border: 0;
-    margin-top: 20px;
     border-radius: 20px;
     color: #fff;
     background-color: #e83363;
-
 }
+
+.time1 h3{
+    color: #e83363;
+    font-family: 'barlow';
+}
+.time2  {
+    background-color: hsla(0,0%,94%,.06);
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+
+    height: 100px;
+    display: flex;
+    
+}
+.time2 .col-3 h1 span{
+    color: #e83363;
+    font-family: 'barlow';
+}
+.proE{
+    color: #fff;
+}
+.proE .card{
+    padding: 1.3rem;
+    border-radius: 1.2rem;
+    background: hsla(0,0%,94%,.06);
+    -webkit-backdrop-filter: blur(140px);
+    backdrop-filter: blur(140px);
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
+    line-height: 140%;
+    color: #949aad;
+    letter-spacing: .02em;
+    text-align: justify;
+    font-weight: 500;
+    position: relative;
+}
+.card-body h5{
+    color: #e83363;
+}
+.inner img{
+    width: 350px;
+    padding: 30px;
+}
+
