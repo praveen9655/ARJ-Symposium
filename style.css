@@ -24,12 +24,6 @@ nav{
     backdrop-filter: blur(10px);
     
 }
-.main1{
-    height: 100vh;
-    color: #fff;
-    letter-spacing: .02em;
-}
-
 .home_inside h3 , p{
     color: #949aad;
     font-family: 'barlow';
@@ -40,7 +34,7 @@ nav{
     line-height: 110%;
     margin-top: 10px;
     font-size: 24px;
-    margin-bottom: clamp(0.625rem,0.493rem + 0.563vw,1rem);
+
     color: #fff;
 }
 .home_inside b{
@@ -65,12 +59,11 @@ nav{
     color: #fff;
     border-radius: 1rem;
     box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
-
     height: 100px;
     display: flex;
     
 }
-.time2 .col-3 h1 span{
+.time2  h1 span{
     color: #e83363;
     font-family: 'barlow';
 }
@@ -121,6 +114,7 @@ nav{
 .rules .card{
     min-height: 500px;
     margin: 0 1%;
+    width: 340px;
     padding: 5%;
     background: hsla(0,0%,94%,.06);
     -webkit-backdrop-filter: blur(140px);
@@ -132,10 +126,23 @@ nav{
     flex-shrink: 0;
     border-radius: 1rem;
     letter-spacing: .02em;
+    margin: 0px 11.5px;
     font-weight: 500;
 }
-.rounds .card {
-    min-height: 700px;
+.roundFun{
+    padding: 10px;
+    overflow: hidden;
+}
+.rouNevimg{
+    position: absolute;
+    left: 72px;
+    margin-top: 15%;
+    width: 1200px;
+}
+.rouNevimg img{
+    background-color: #fff;
+    padding: 15px 18px;
+    border-radius: 50%;
 }
 .rules .card .rouD b{
         font-size: 1.5em;
@@ -167,4 +174,79 @@ footer hr{
     background-color: #5c5c5c;
     height: 0.1px;
     width: 200px;
+}
+
+@media (max-width : 900px){
+    .time1{
+        padding: 10px;
+    }
+    .time1 h3{
+        color: #e83363;
+        font-family: 'barlow';
+    }
+    .time2  {
+        background-color: hsla(0,0%,94%,.06);
+        color: #fff;
+        border-radius: 1rem;
+        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        height: 100px;
+        
+    }
+    .time2  h1{
+        font-size: 27px;
+    }
+    .time2  h1 span{
+        color: #e83363;
+        font-family: 'barlow';
+    }
+    .proE .card{
+        min-height: 100%;
+        max-height: 100%;
+        padding: 1.3rem;
+        border-radius: 1.2rem;
+        background: hsla(0,0%,94%,.06);
+        -webkit-backdrop-filter: blur(140px);
+        backdrop-filter: blur(140px);
+        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
+        line-height: 140%;
+        color: #949aad;
+        letter-spacing: .02em;
+        text-align: justify;
+        font-weight: 500;
+    }
+    .rules .card{
+        min-height: 500px;
+        margin: 0 1%;
+        width: 315px;
+        padding: 5%;
+        background: hsla(0,0%,94%,.06);
+        -webkit-backdrop-filter: blur(140px);
+        backdrop-filter: blur(140px);
+        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
+        line-height: 140%;
+        color: #949aad;
+        flex-shrink: 0;
+        border-radius: 1rem;
+        letter-spacing: .02em;
+        margin: 0px 10px;
+        margin-bottom: 70px;
+        font-weight: 500;
+    }
+    .roundFun{
+        padding: 0px;
+        overflow: hidden;
+    }
+    .rouNevimg{
+        position: absolute;
+        left: 25%;
+        margin-top: 100%;
+        width: 50%;
+    }
+    .rouNevimg img{
+        background-color: #fff;
+        padding: 15px 18px;
+        border-radius: 50%;
+    }
 }
