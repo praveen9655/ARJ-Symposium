@@ -7,6 +7,8 @@
     background-color: #05112e;
     background-image: url(bg-texture.png);
 }
+
+
 nav p{
     color: #fff;
     font-family: 'barlow';     
@@ -70,20 +72,37 @@ nav{
 .proE,.rules{
     color: #fff;
 }
+.proE .Rcard {
+    margin-top: 20px;
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.proE .Rcard:hover {
+    height: 400px;
+}
+.Rcard h5{
+    font-weight: bold;
+}
+
 .proE .card{
     min-height: 100%;
     max-height: 100%;
-    padding: 1.3rem;
+    padding: 10px;
     border-radius: 1.2rem;
     background: hsla(0,0%,94%,.06);
     -webkit-backdrop-filter: blur(140px);
     backdrop-filter: blur(140px);
     box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
     font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
-    line-height: 140%;
     color: #949aad;
-    letter-spacing: .02em;
     text-align: justify;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
     font-weight: 500;
 }
 .card-body h5,.TechCon b {
@@ -111,58 +130,18 @@ nav{
     color: #fff;
     border: 1px solid #bebebe;
 }
-.rules .card{
-    min-height: 500px;
-    margin: 0 1%;
-    width: 340px;
-    padding: 5%;
-    background: hsla(0,0%,94%,.06);
-    -webkit-backdrop-filter: blur(140px);
-    backdrop-filter: blur(140px);
-    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
-    font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
-    line-height: 140%;
-    color: #949aad;
-    flex-shrink: 0;
-    border-radius: 1rem;
-    letter-spacing: .02em;
-    margin: 0px 11.5px;
-    font-weight: 500;
-}
-.roundFun{
-    padding: 10px;
-    overflow: hidden;
-}
-.rouNevimg{
-    position: absolute;
-    left: 72px;
-    margin-top: 15%;
-    width: 1200px;
-}
-.rouNevimg img{
-    background-color: #fff;
-    padding: 15px 18px;
-    border-radius: 50%;
-}
-.rules .card .rouD b{
-        font-size: 1.5em;
-        font-weight: bold;
 
-}
-.rules .card .cont b{
-        font-size: 1.3rem;
-        font-weight: bold;
-        margin: 10px 0px;
-}
-.rules .card p{
-        color: #777;
-        font-size: 14px;
-
-}
 .card hr {
     background-color: #ffffff;
     height: 1px;  
 }
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 footer {
     width: 100%;
     padding: 10px;
@@ -202,7 +181,7 @@ footer hr{
     .proE .card{
         min-height: 100%;
         max-height: 100%;
-        padding: 1.3rem;
+        padding: 10px 20px;
         border-radius: 1.2rem;
         background: hsla(0,0%,94%,.06);
         -webkit-backdrop-filter: blur(140px);
@@ -215,38 +194,5 @@ footer hr{
         text-align: justify;
         font-weight: 500;
     }
-    .rules .card{
-        min-height: 500px;
-        margin: 0 1%;
-        width: 315px;
-        padding: 5%;
-        background: hsla(0,0%,94%,.06);
-        -webkit-backdrop-filter: blur(140px);
-        backdrop-filter: blur(140px);
-        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
-        font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
-        line-height: 140%;
-        color: #949aad;
-        flex-shrink: 0;
-        border-radius: 1rem;
-        letter-spacing: .02em;
-        margin: 0px 10px;
-        margin-bottom: 70px;
-        font-weight: 500;
-    }
-    .roundFun{
-        padding: 0px;
-        overflow: hidden;
-    }
-    .rouNevimg{
-        position: absolute;
-        left: 25%;
-        margin-top: 100%;
-        width: 50%;
-    }
-    .rouNevimg img{
-        background-color: #fff;
-        padding: 15px 18px;
-        border-radius: 50%;
-    }
+
 }
