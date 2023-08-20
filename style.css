@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', sans-serif;
+}
+.bd1{
+    background-color: #05112e;
+    background-image: url(bg-texture.png);
+}
+
+.loginMain{
+    min-height: 100vh;
+}
+nav p{
+    color: #fff;
+    font-family: 'barlow';     
+    font-size: 25px;
+    font-weight: 200;
+}
+nav{
+    background-color: rgba(227,228,233,.16);
+    box-shadow: 0 50px 100px -20px rgba(50,50,93,.25), 0 30px 60px -30px rgba(0,0,0,.3);
+    z-index: 100;
+    color: #cce3de;
+    position: sticky;
+    top: 0px;
+    height: 100px;
+    backdrop-filter: blur(10px);
+    
+}
+.home_inside h3 , p{
+    color: #949aad;
+    font-family: 'barlow';
+    font-weight: bold;
+}
+.home_inside h5{
+    font-weight: normal;
+    line-height: 110%;
+    margin-top: 10px;
+    font-size: 24px;
+
+    color: #fff;
+}
+.home_inside b{
+    color: #e83363;
+    font-family: 'Fasthand', cursive;
+    font-weight: 400;
+    font-size: clamp(2.25rem,1.942rem + 1.315vw,3.125rem);
+}
+.home_inside button{
+    border: 0;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #e83363;
+}
+
+.time1 h3{
+    color: #e83363;
+    font-family: 'barlow';
+}
+.time2  {
+    background-color: hsla(0,0%,94%,.06);
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    height: 100px;
+    display: flex;
+    
+}
+.time2  h1 span{
+    color: #e83363;
+    font-family: 'barlow';
+}
+.proE,.rules{
+    color: #fff;
+}
+.proE .Rcard {
+    margin-top: 20px;
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.proE .Rcard:hover {
+    height: 400px;
+}
+.Rcard h5{
+    font-weight: bold;
+}
+
+.proE .card{
+    min-height: 100%;
+    max-height: 100%;
+    padding: 10px;
+    border-radius: 1.2rem;
+    background: #f0f0f00f;
+    -webkit-backdrop-filter: blur(140px);
+    backdrop-filter: blur(140px);
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
+    color: #949aad;
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 500;
+}
+.card-body h5,.TechCon b {
+    color: #e83363;
+}
+.inner img{
+    width: 350px;
+    padding: 30px;
+}
+.TechCon{
+    padding: 1rem;
+    border-radius: 1.2rem;
+    background: hsla(0,0%,94%,.06);
+    -webkit-backdrop-filter: blur(140px);
+    backdrop-filter: blur(140px);
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
+    line-height: 140%;
+    color: #949aad;
+    letter-spacing: .02em;
+    text-align: justify;
+    font-weight: 500;
+}
+.TechCon hr{
+    color: #fff;
+    border: 1px solid #bebebe;
+}
+
+.card hr {
+    background-color: #ffffff;
+    height: 1px;  
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+}
+footer p{
+    font-weight: normal;
+}
+footer hr{
+    background-color: #5c5c5c;
+    height: 0.1px;
+    width: 200px;
+}
+
+@media (max-width : 900px){
+    .time1{
+        padding: 10px;
+    }
+    .time1 h3{
+        color: #e83363;
+        font-family: 'barlow';
+    }
+    .time2  {
+        background-color: hsla(0,0%,94%,.06);
+        color: #fff;
+        border-radius: 1rem;
+        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        height: 100px;
+        
+    }
+    .time2  h1{
+        font-size: 27px;
+    }
+    .time2  h1 span{
+        color: #e83363;
+        font-family: 'barlow';
+    }
+    .proE .card{
+        min-height: 100%;
+        max-height: 100%;
+        padding: 10px 20px;
+        border-radius: 1.2rem;
+        background: hsla(0,0%,94%,.06);
+        -webkit-backdrop-filter: blur(140px);
+        backdrop-filter: blur(140px);
+        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
+        line-height: 140%;
+        color: #949aad;
+        letter-spacing: .02em;
+        text-align: justify;
+        font-weight: 500;
+    }
+
+}
