@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ARJ SYMPOSIUM</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="ARJ LOGO.png" type="image/x-icon">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400&family=Fasthand&family=Oswald:wght@200&family=Poppins:wght@200;500&display=swap" rel="stylesheet">
   </head>
@@ -17,7 +18,7 @@
         <p class="m-3 d-none d-md-block">ARJ COLLEGE OF ENGINEERING AND TECHNOLOGY</p>
         <p class="m-3 d-block d-md-none">A.R.J</p>
       </div>
-      <p class="m-3 mr-5"> <a target="_blank" href="https://docs.google.com/forms/d/1jmVYSU1WYKCJpFjwwh1XeZHYxo0UmsajHbAiv5WGjsA/viewform?pli=1&edit_requested=true" class="nav-link text-light">LOGIN</a></p>
+      <p class="m-3 mr-5"> <a target="_blank" href="#" class="nav-link text-light">LOGIN</a></p>
   </nav>
     <!-- Main Container -->
   <div class="container">
@@ -36,74 +37,79 @@
           <img src="CSE logo.png">
       </div>
     </div>
+    <div id="errorMessage" style="color: red;"></div>
 
     <section class="Regi">
-      <h2>Event Registration Form</h2>
-    <form action="" id="form" name="form" method="post">
-        <div class="Tinput">
-          <label for="studentName">Student Name:</label> <br>
-          <input type="text" id="studentName" name="studentName" required><br><br>
-          
-          <label for="studentEmail">Student Email:</label> <br>
-          <input type="email" id="studentEmail" name="studentEmail" required><br><br>
-          
-          <label for="studentPhone">Student Phone Number:</label> <br>
-          <input type="tel" id="studentPhone" name="studentPhone" required><br><br>
-          
-          <label for="collegeName">College Name:</label> <br>
-          <input type="text" id="collegeName" name="collegeName" required><br><br>
-        </div>
-        <div class="Rinput">
-          <div>
-            <label id="lab">Department:</label><br>
-            <input type="radio" id="cse" name="department" value="CSE" required>
-            <label for="cse">CSE</label><br>
-            <input type="radio" id="ece" name="department" value="ECE">
-            <label for="ece">ECE</label><br>
-            <input type="radio" id="it" name="department" value="IT">
-            <label for="it">IT</label><br>
-            <input type="radio" id="others" name="department" value="Others">
-            <label for="others">Others</label><br><br>
+      <form action="" id="form" name="form" method="post">
+      <h2 class="mb-5">Event Registration Form</h2>
+        <div class="w-100 d-md-flex justify-content-around">
+            <div class="Tinput">
+            <label for="studentName">1. Student Name:</label> <br>
+            <input type="text" id="studentName" name="studentName" required><br><br>
+            
+            <label for="studentEmail">2. Student Email:</label> <br>
+            <input type="email" id="studentEmail" name="studentEmail" required><br><br>
+            
+            <label for="studentPhone">3. Student Phone Number:</label> <br>
+            <input type="tel" id="studentPhone" name="studentPhone" required><br><br>
+            
+            <label for="collegeName">4. College Name:</label> <br>
+            <input type="text" id="collegeName" name="collegeName" required><br><br>
+          </div>
+          <div class="Rinput">
+            <div>
+              <label id="lab">5. Department:</label><br>
+              <input type="radio" id="cse" name="department" value="CSE" required>
+              <label for="cse">CSE</label><br>
+              <input type="radio" id="ece" name="department" value="ECE">
+              <label for="ece">ECE</label><br>
+              <input type="radio" id="it" name="department" value="IT">
+              <label for="it">IT</label><br>
+              <input type="radio" id="others" name="department" value="Others">
+              <label for="others">Others</label><br><br>
+            </div>
+            
+            <div>
+                <label id="lab">6. Year of Studying:</label><br>
+              <input type="radio" id="firstYear" name="yearOfStudying" value="I Year" required>
+              <label for="firstYear">I Year</label><br>
+              <input type="radio" id="secondYear" name="yearOfStudying" value="II Year">
+              <label for="secondYear">II Year</label><br>
+              <input type="radio" id="thirdYear" name="yearOfStudying" value="III Year">
+              <label for="thirdYear">III Year</label><br>
+              <input type="radio" id="fourthYear" name="yearOfStudying" value="IV Year">
+              <label for="fourthYear">IV Year</label><br><br>
+            </div>
           </div>
           
-          <div>
-              <label id="lab">Year of Studying:</label><br>
-            <input type="radio" id="firstYear" name="yearOfStudying" value="I Year" required>
-            <label for="firstYear">I Year</label><br>
-            <input type="radio" id="secondYear" name="yearOfStudying" value="II Year">
-            <label for="secondYear">II Year</label><br>
-            <input type="radio" id="thirdYear" name="yearOfStudying" value="III Year">
-            <label for="thirdYear">III Year</label><br>
-            <input type="radio" id="fourthYear" name="yearOfStudying" value="IV Year">
-            <label for="fourthYear">IV Year</label><br><br>
+          <div class="Cinput">
+            <label id="lab">7. Technical Events:</label><br>
+            <input type="checkbox" id="paperPresentation" name="technicalEvents[]" value="Paper Presentation (max 2 members)">
+            <label for="paperPresentation">Paper Presentation</label><br>
+            <input type="checkbox" id="webDevelopment" name="technicalEvents[]" value="Web Development (max 2 members)">
+            <label for="webDevelopment">Web Development</label><br>
+            <input type="checkbox" id="technicalQuiz" name="technicalEvents[]" value="Technical Quiz Master (max 1 member)">
+            <label for="technicalQuiz">Technical Quiz Master </label><br><br>
+            
+            <label id="lab">8. Non Technical Events:</label><br>
+            <input type="checkbox" id="piconnect" name="nonTechnicalEvents[]" value="piconnect (max 2 members)">
+            <label for="piconnect">piconnect</label><br>
+            <input type="checkbox" id="crimeSceneAnalyst" name="nonTechnicalEvents[]" value="CrimeScene Analyst (max 2 members)">
+            <label for="crimeSceneAnalyst">CrimeScene Analyst</label><br>
+            <input type="checkbox" id="clickznow" name="nonTechnicalEvents[]" value="Clickznow">
+            <label for="clickznow">Clickznow</label><br><br>
           </div>
-        </div>
-        
-        <div class="Cinput">
-          <label id="lab">Technical Events:</label><br>
-          <input type="checkbox" id="paperPresentation" name="technicalEvents[]" value="Paper Presentation (max 2 members)">
-          <label for="paperPresentation">Paper Presentation</label><br>
-          <input type="checkbox" id="webDevelopment" name="technicalEvents[]" value="Web Development (max 2 members)">
-          <label for="webDevelopment">Web Development</label><br>
-          <input type="checkbox" id="technicalQuiz" name="technicalEvents[]" value="Technical Quiz Master (max 1 member)">
-          <label for="technicalQuiz">Technical Quiz Master </label><br><br>
-          
-          <label id="lab">Non Technical Events:</label><br>
-          <input type="checkbox" id="piconnect" name="nonTechnicalEvents[]" value="piconnect (max 2 members)">
-          <label for="piconnect">piconnect</label><br>
-          <input type="checkbox" id="crimeSceneAnalyst" name="nonTechnicalEvents[]" value="CrimeScene Analyst (max 2 members)">
-          <label for="crimeSceneAnalyst">CrimeScene Analyst</label><br>
-          <input type="checkbox" id="clickznow" name="nonTechnicalEvents[]" value="Clickznow">
-          <label for="clickznow">Clickznow</label><br><br>
         </div>
         
         <input  type="submit" id="btnsub" value="Submit">
-        <img src="load.svg" alt="">
-    </form>
+      </form>
+      <div class="loadiv">
+        <img id="loading" src="load.svg" alt="">
+      </div>
     <div id="success" >
       <div class="success d-flex flex-column align-items-center justify-content-center">
         <img src="correct.png" class="m-5" width="150px" alt="">
-        <h2>Your registration was successful!</h2>
+        <h2 class="text-center">Your registration was successful!</h2>
         <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </div>
@@ -390,6 +396,10 @@
       Event queries +91 965559 20050|Technical queries +91 96559 20050
     </p>
   </footer>
+  <div class=" watermark">
+    <img  class="mx-1"  src="pimg.png" alt="" width="30px">
+    <p  class="my-1" >Developed by A.R.J student <a target="_blank" href="https://www.linkedin.com/in/praveen-kumaresan-720653281/">@DevPraveen</a></p>
+  </div>
 
   <!-- Bootsrap js link -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

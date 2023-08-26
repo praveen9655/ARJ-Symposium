@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Barlow', sans-serif;
 }
+
 .bd1{
     background-color: #05112e;
     background-image: url(bg-texture.png);
@@ -17,6 +18,13 @@ section{
     padding: 20px;
     margin: 20px 0px;
     transition: all 1s;
+}
+#form{
+    transition: all 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .Regi{
     display: none;
@@ -76,6 +84,15 @@ section input[type="checkbox"] {
     padding: 10px 50px;
     font-weight: bolder;
     background-color: #e83363;
+}
+.loadiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loading{
+    display: none;
 }
 .loginMain{
     min-height: 100vh;
@@ -225,7 +242,12 @@ footer hr{
     height: 0.1px;
     width: 200px;
 }
-
+.watermark{
+    padding: 5px;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+}
 @media (max-width : 900px){
     .cseLogo img{
         width: 150px;
