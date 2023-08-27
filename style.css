@@ -3,12 +3,117 @@
     padding: 0;
     font-family: 'Barlow', sans-serif;
 }
+
 .bd1{
     background-color: #05112e;
     background-image: url(bg-texture.png);
+} .cseLogo img{
+    width: 333px;
+}
+section{
+    background-color: hsla(0,0%,94%,.06);
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    padding: 20px;
+    margin: 20px 0px;
+    transition: all 1s;
+}
+#form{
+    transition: all 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Regi{
+    display: none;
+    transition: all 1s;
+}
+#success{
+    display: none;
+}
+.errorMessage{
+    animation: shake 0.6s;
+    color: #ff1515;
+    display: none;
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
 }
 
-
+section input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid#cccccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+section input[type="radio"]:checked {
+    background-color: #e83363;
+  }
+section input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid #cccccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+ section input[type="checkbox"]:checked {
+    background-color: #e83363;
+  } 
+.Tinput input{
+    border: 0;
+    padding: 5px;
+    height: 50px;
+    width: 300px;
+    border-bottom: 2px solid #e83363;
+    background-color: #ffffff09;
+    color: white;
+    outline: none;
+}
+.Tinput label , #lab{
+    color: #e83363;
+    font-size: medium;
+    font-size: large;
+    font-family: 'barlow';  
+    font-weight: 700;
+}
+#btnsub{
+    border: 0;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px 50px;
+    font-weight: bolder;
+    background-color: #e83363;
+}
+.loadiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loading{
+    display: none;
+}
+.loginMain{
+    min-height: 100vh;
+}
 nav p{
     color: #fff;
     font-family: 'barlow';     
@@ -26,7 +131,7 @@ nav{
     backdrop-filter: blur(10px);
     
 }
-.home_inside h3 , p{
+.home_inside h3 , p , section h2 , label , input{
     color: #949aad;
     font-family: 'barlow';
     font-weight: bold;
@@ -45,7 +150,7 @@ nav{
     font-weight: 400;
     font-size: clamp(2.25rem,1.942rem + 1.315vw,3.125rem);
 }
-.home_inside button{
+.home_inside button {
     border: 0;
     border-radius: 20px;
     color: #fff;
@@ -92,7 +197,7 @@ nav{
     max-height: 100%;
     padding: 10px;
     border-radius: 1.2rem;
-    background: hsla(0,0%,94%,.06);
+    background: #f0f0f00f;
     -webkit-backdrop-filter: blur(140px);
     backdrop-filter: blur(140px);
     box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
@@ -154,8 +259,20 @@ footer hr{
     height: 0.1px;
     width: 200px;
 }
-
+.watermark{
+    padding: 5px;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+}
 @media (max-width : 900px){
+    .cseLogo img{
+        width: 150px;
+        margin-bottom: 80px;
+    }
+    .Tinput input{
+        width: 100%;
+    }
     .time1{
         padding: 10px;
     }
