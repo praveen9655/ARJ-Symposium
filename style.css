@@ -18,6 +18,7 @@ section{
     padding: 20px;
     margin: 20px 0px;
     transition: all 1s;
+    /* overflow: hidden; */
 }
 #form{
     transition: all 1s;
@@ -33,7 +34,12 @@ section{
 #success{
     display: none;
 }
-.errorMessage{
+.errorMessage , .errorMessage2 {
+    animation: shake 0.6s;
+    color: #ff1515;
+    display: none;
+}
+.errEmt{
     animation: shake 0.6s;
     color: #ff1515;
     display: none;
@@ -49,7 +55,6 @@ section{
         transform: translateX(10px);
     }
 }
-
 section input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
@@ -77,6 +82,7 @@ section input[type="checkbox"] {
  section input[type="checkbox"]:checked {
     background-color: #e83363;
   } 
+
 .Tinput input{
     border: 0;
     padding: 5px;
@@ -94,7 +100,7 @@ section input[type="checkbox"] {
     font-family: 'barlow';  
     font-weight: 700;
 }
-#btnsub{
+#btnsub,#btnnext{
     border: 0;
     border-radius: 20px;
     color: #fff;
@@ -114,6 +120,43 @@ section input[type="checkbox"] {
 .loginMain{
     min-height: 100vh;
 }
+.pay img{
+    border-radius: 20px;
+}
+input[type="file"] {
+    display: none;
+  }
+
+  .custom-file-input {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #e83363;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .custom-file-input-label {
+    display: inline-block;
+    padding: 6px 18px;
+    background-color: #e83363;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+#previewImage{
+    border-radius: 0;
+}
+.tXtform{
+    width: 100%;
+    /* display: none; */
+}
+.payMent{
+    display: none;
+}
+
 nav p{
     color: #fff;
     font-family: 'barlow';     
@@ -127,7 +170,7 @@ nav{
     color: #cce3de;
     position: sticky;
     top: 0px;
-    height: 100px;
+    height: 80px;
     backdrop-filter: blur(10px);
     
 }
@@ -141,7 +184,6 @@ nav{
     line-height: 110%;
     margin-top: 10px;
     font-size: 24px;
-
     color: #fff;
 }
 .home_inside b{
@@ -261,7 +303,7 @@ footer hr{
 }
 .watermark{
     padding: 5px;
-    background-color: #000000;
+    background-color: #05112e;
     display: flex;
     align-items: center;
 }

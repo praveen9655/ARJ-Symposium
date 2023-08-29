@@ -26,6 +26,56 @@ function updateCountdown() {
     var opn= document.querySelector('.Regi');
     opn.style.display='block';
   }
+
+  
+  const imageInput = document.getElementById("payimg");
+  const previewImage = document.getElementById("previewImage");
+  
+  imageInput.addEventListener("change", function() {
+    const selectedImage = imageInput.files[0];
+  
+    if (selectedImage) {
+      const reader = new FileReader();
+  
+      reader.onload = function(e) {
+        previewImage.src = e.target.result;
+        previewImage.style.display = "block";
+      };
+  
+      reader.readAsDataURL(selectedImage);
+    } else {
+      previewImage.src = "#";
+      previewImage.style.display = "none";
+    }
+  });
+  
+  async function payOpen(){
+  const studentPhone = document.getElementById("studentPhone").value;
+  const duplicateCheck = await checkDuplicateStudentPhone(studentPhone);
+  const studentName = document.getElementById("studentName").value;
+  const studentEmail = document.getElementById("studentEmail").value;
+  const collegeName = document.getElementById("collegeName").value;
+  
+  if (duplicateCheck) {
+    document.querySelector('.errorMessage').style.display='block';
+    document.querySelector('.errorMessage2').style.display='block';
+    document.querySelector('#btnsub').style = ` animation: shake 0.6s;`
+}
+
+else if(studentName == '' || studentEmail == '' || collegeName == ''){
+  document.querySelector('.errEmt').style.display='block';
+}
+else{
+  document.querySelector('.errorMessage').style.display='none';
+  document.querySelector('.errorMessage2').style.display='none';
+  document.querySelector('.payMent').style.display='block';
+  document.querySelector('.errEmt').style.display='none';
+
+  document.querySelector('.tXtform').style.display='none';
+  document.querySelector('#btnnext').style.display='none';
+}
+}
+
 //Sheet 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxiGtyhTf8A1jIsKcR3GGbpzigrQ59NDbUqSk4PCCicrTLL8ykYDRUOvYBZZ5Zvud_hlQ/exec'
 
@@ -51,6 +101,8 @@ form.addEventListener('submit', async (e) => {
 
   if (duplicateCheck) {
       document.querySelector('.errorMessage').style.display='block';
+      document.querySelector('.errorMessage2').style.display='block';
+      document.querySelector('#btnsub').style = `    animation: shake 0.6s;`
   } else {
     document.querySelector('.errorMessage').style.display='none';
       const studentName = document.getElementById("studentName").value;
@@ -80,7 +132,7 @@ form.addEventListener('submit', async (e) => {
           department: department,
           yearOfStudying: yearOfStudying,
           technicalEvents: technicalEvents,
-          nonTechnicalEvents: nonTechnicalEvents
+          nonTechnicalEvents: nonTechnicalEvents,
       });
 
       document.querySelector("#loading").style.display = 'block';

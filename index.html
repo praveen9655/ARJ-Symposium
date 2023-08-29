@@ -31,7 +31,7 @@
           <h5>Proudly Presents,</h5>
           <b>TechZombie</b>
           <p>Techies from the Department of CSE feel proud to benchmark you all over this massive stage of Technical and Non-Technical world...Time to gear up your shuttles of talent...Get ready folks..</p>
-          <button onclick="RegiOn()" class="  w-50 b-0 mt-3"><a  class="nav-link text-light">Register Now</a></button>
+          <button onclick="RegiOn()" class="  w-50 b-0 mt-3"><a href="#Regi" class="nav-link text-light">Register Now</a></button>
       </div>
       <div class="cseLogo col-md-6 d-flex align-items-center order-sm-1 justify-content-center">
           <img src="CSE logo.png">
@@ -39,10 +39,11 @@
     </div>
    
 
-    <section class="Regi">
+    <section class="Regi" id="Regi">
       <form action="" id="form" name="form" method="post">
       <h2 class="mb-5">Event Registration Form</h2>
-        <div class="w-100 d-md-flex justify-content-around">
+       <div class="tXtform">
+          <div class="w-100 d-md-flex justify-content-around">
             <div class="Tinput">
             <label for="studentName">1. Student Name:</label> <br>
             <input type="text" id="studentName" name="studentName" required><br><br>
@@ -84,27 +85,38 @@
               <label for="fourthYear">IV Year</label><br><br>
             </div>
           </div>
-          
           <div class="Cinput">
             <label id="lab">7. Technical Events:</label><br>
             <input type="checkbox" id="paperPresentation" name="technicalEvents[]" value="Paper Presentation (max 2 members)">
             <label for="paperPresentation">Paper Presentation</label><br>
             <input type="checkbox" id="webDevelopment" name="technicalEvents[]" value="Web Development (max 2 members)">
             <label for="webDevelopment">Web Development</label><br>
-            <input type="checkbox" id="technicalQuiz" name="technicalEvents[]" value="Technical Quiz Master (max 1 member)">
-            <label for="technicalQuiz">Technical Quiz Master </label><br><br>
             
             <label id="lab">8. Non Technical Events:</label><br>
             <input type="checkbox" id="piconnect" name="nonTechnicalEvents[]" value="piconnect (max 2 members)">
             <label for="piconnect">piconnect</label><br>
             <input type="checkbox" id="crimeSceneAnalyst" name="nonTechnicalEvents[]" value="CrimeScene Analyst (max 2 members)">
             <label for="crimeSceneAnalyst">CrimeScene Analyst</label><br>
-            <input type="checkbox" id="clickznow" name="nonTechnicalEvents[]" value="Clickznow">
-            <label for="clickznow">Clickznow</label><br><br>
+          </div>
+          
+        </div>
+       </div>
+       <hr>
+        <div class="payMent">
+          <div class="pay d-flex flex-column align-items-center justify-content-center">
+            <img src="payment.jpg" width="250px" alt=""> <br>
+            <label class="custom-file-input-label" for="payimg">Choose a file</label>
+            <img id="previewImage" src="#" alt="Selected Image" width="50px" style="display: none;">
+            <input class="my-3 custom-file-input" type="file" name="payimg" id="payimg"  accept="image/*">
+            <p>Upload your payment screenshot</p>
+            <input  type="submit" id="btnsub" value="Submit">
           </div>
         </div>
-        
-        <input  type="submit" id="btnsub" value="Submit">
+        <div class="errorMessage2">
+          <small>This phone number already existing</small>
+        </div>
+        <p class="errEmt" >Please fill the form</p>
+        <input onclick="payOpen()"  type="button" id="btnnext" value="Next">
       </form>
       <div class="loadiv">
         <img id="loading" src="load.svg" alt="">
@@ -167,13 +179,13 @@
                       </div>
                       <div class="card Rcard">
                         <h5>Rules</h5> <br>
-                          <ol class="p-md-3">
-                            <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                            <li><p> It is a single participant event.</p></li>
-                            <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                            <li><p>Each round contains 25 to 30 questions. </p></li>
-                            <li><p> Every participants should bring their Mobile phones.</p></li>
-                          </ol>
+                        <ol class="p-md-3">
+                          <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                          <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
+                          <li><p>Lorem ipsum dolor sit amet, consectetur.</p></li>
+                          <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                          <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
+                        </ol>
                       </div>
                   </div>
               </div>
@@ -185,7 +197,7 @@
                     </div>
                     <div class="card-body">
                         <div>
-                          <h5 class="card-titel">1. De Paper Fest (Paper Presentation)</h5>
+                          <h5 class="card-titel">2.Web Development</h5>
                           <p>
                             High over your ideas...? Time to implement up your brainy things ahead through presentation and pieces of sheets...Have your stage here to present your brainy stuffs and bag home the price for the best one <br><br>
                             "If you don't know what you want to achieve in your presentation your audience never will."
@@ -196,13 +208,13 @@
                         </div>
                         <div class="card Rcard">
                           <h5>Rules</h5> <br>
-                            <ol class="p-md-3">
-                              <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                              <li><p> It is a single participant event.</p></li>
-                              <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                              <li><p>Each round contains 25 to 30 questions. </p></li>
-                              <li><p> Every participants should bring their Mobile phones.</p></li>
-                            </ol>
+                          <ol class="p-md-3">
+                            <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                            <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
+                            <li><p>Lorem ipsum dolor sit amet, consectetur.</p></li>
+                            <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                            <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
+                          </ol>
                         </div>
                     </div>
               </div>
@@ -230,7 +242,7 @@
                 </div>
                 <div class="card-body">
                     <div>
-                      <h5 class="card-titel">1. CryptoMot (Jumbled Words)</h5>
+                      <h5 class="card-titel">1.CrimeScene Analyst </h5>
                       <p>
                         Master in decrypting problems in life...?Time to test your technical proficiency...Here's your stage to prove your skills in Engineering...Grab up your seat..and stay tunes for the journey of Decryption of words <br><br>
                         "One cartographer does not only understand how to analyse cryptography by old times"-Matt Harvey
@@ -239,13 +251,13 @@
                     </div>
                     <div class="card Rcard"> 
                       <h5>Rules</h5> <br>
-                        <ol class="p-md-3">
-                          <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                          <li><p> It is a single participant event.</p></li>
-                          <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                          <li><p>Each round contains 25 to 30 questions. </p></li>
-                          <li><p> Every participants should bring their Mobile phones.</p></li>
-                        </ol>
+                      <ol class="p-md-3">
+                        <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                        <li><p> Lorem ipsum dolor sit amet consectetur .</p></li>
+                        <li><p>Lorem ipsum dolor sit amet, consectetur.</p></li>
+                        <li><p>Lorem ipsum dolor sit amet consectetur. </p></li>
+                        <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
+                      </ol>
                     </div>
                 </div>
             </div>
@@ -257,7 +269,7 @@
                   </div>
                   <div class="card-body">
                       <div>
-                        <h5 class="card-titel">2. Night Owl Quiz (Tech and GK Quiz)</h5>
+                        <h5 class="card-titel">2. Piconnect </h5>
                         <p>
                           Imagine this...It's pitch dark and way past twelve...You're lying down on the bed, pillow cozy under your neck and eyes fixated on the ceiling fan screeching with a tune you instantly procreate and start jamming inside your head...You are drifting off at the comfort of how warm your bed feels. And at some point you realize, the word 'bed' actually looks like a bed<br>
                         </p>
@@ -266,125 +278,17 @@
                       <div class="card Rcard">
                         <h5>Rules</h5> <br>
                           <ol class="p-md-3">
-                            <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                            <li><p> It is a single participant event.</p></li>
-                            <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                            <li><p>Each round contains 25 to 30 questions. </p></li>
-                            <li><p> Every participants should bring their Mobile phones.</p></li>
+                            <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                            <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
+                            <li><p>Lorem ipsum dolor sit amet, consectetur.</p></li>
+                            <li><p>Lorem ipsum dolor sit amet consectetur.</p></li>
+                            <li><p> Lorem ipsum dolor sit amet consectetur.</p></li>
                           </ol>
                       </div>
                   </div>
             </div>
           </div>
-          <div class="col-md-6 my-3">
-            <div class="card shadow">
-                  <div class="inner d-flex align-items-center justify-content-center ">
-                    <img src="fandom.svg" class="card-img-top" alt="">
-                  </div>
-                  <div class="card-body">
-                      <div>
-                        <h5 class="card-titel">3.Phantasm Quiz (Fantasy Quiz)</h5>
-                        <p>
-                          What is the address of the fictional character in Avengers? What made the Justice league to be broken into two pieces...?
-                          Come..join us on Phantasm Quiz - a trick or treat for cine-philes and fanatics like you all...! The quiz will cover fandoms based on books, movies, TV/web series, video games and comics...You do not want to miss out on this, if anything..!<br>
-                        </p>
-                        <span >BASIC</span>
-                      </div>
-                      <div class="card Rcard">
-                        <h5>Rules</h5> <br>
-                          <ol class="p-md-3">
-                            <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                            <li><p> It is a single participant event.</p></li>
-                            <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                            <li><p>Each round contains 25 to 30 questions. </p></li>
-                            <li><p> Every participants should bring their Mobile phones.</p></li>
-                          </ol>
-                      </div>
-                  </div>
-            </div>
-          </div>
-          <div class="col-md-6 my-3">
-            <div class="card shadow">
-                  <div class="inner d-flex align-items-center justify-content-center ">
-                    <img src="direction.svg" class="card-img-top" alt="">
-                  </div>
-                  <div class="card-body">
-                      <div>
-                        <h5 class="card-titel">4.Hopper's Mystification (Crime Investigation)</h5>
-                        <p>
-                          Hopper and the peers are ready with detective lenses to solve mysteries not only using logic but also cryptographic techniques to decode the secrets and figure out the prime suspect...Like Sherlock would say, it's your turn to know what other people don't know<br>
-                        </p>
-                        <span >BASIC</span>
-                      </div>
-                      <div class="card Rcard">
-                        <h5>Rules</h5> <br>
-                          <ol class="p-md-3">
-                            <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                            <li><p> It is a single participant event.</p></li>
-                            <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                            <li><p>Each round contains 25 to 30 questions. </p></li>
-                            <li><p> Every participants should bring their Mobile phones.</p></li>
-                          </ol>
-                      </div>
-                  </div>
-            </div>
-          </div>
-          <div class="col-md-6 my-3">
-            <div class="card shadow">
-                  <div class="inner d-flex align-items-center justify-content-center ">
-                    <img src="connection.svg" class="card-img-top" alt="">
-                  </div>
-                  <div class="card-body">
-                      <div>
-                        <h5 class="card-titel">5.Juncture (Connection)</h5>
-                      <p>
-                        Are you fond of solving puzzles..? Are you passionate about Fantasies..? Then you are in for a treat. <br> <br>
-
-
-                        "Juncture" is a medley of Fantasy concepts and elusive puzzles. Approach the questions from a entertainment point of view and be able to show off your entertainment proficiency.Keep in mind to look at the bigger picture in order to piece it together... <br> Good Luck...!<br>
-                      </p>
-                      <span >BASIC</span>
-                      </div>
-                      <div class="card Rcard">
-                        <h5>Rules</h5> <br>
-                          <ol class="p-md-3">
-                            <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                            <li><p> It is a single participant event.</p></li>
-                            <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                            <li><p>Each round contains 25 to 30 questions. </p></li>
-                            <li><p> Every participants should bring their Mobile phones.</p></li>
-                          </ol>
-                      </div>
-                  </div>
-            </div>
-          </div>
-          <div class="col-md-6 my-3">
-            <div class="card shadow">
-                  <div class="inner d-flex align-items-center justify-content-between ">
-                    <img src="acting.svg" class="card-img-top" alt="">
-                  </div>
-                  <div class="card-body">
-                      <div>
-                        <h5 class="card-titel">6. Mono Effet(Mono Acting)</h5>
-                      <p>
-                        Are you a best in expressing out as act...?..Want a stage to act over...?...Come up with us to express your technical and non-technical strength as a actor... <br> <br>
-                        "Acting is not about being someone different. It's finding the similarity in what is apparently different, then finding myself in there." <br>  <br> -Meryl Streep<br>
-                      </p>
-                      <span >BASIC</span>
-                      </div>
-                      <div class="card Rcard">
-                        <h5>Rules</h5> <br> <br>
-                          <ol class="p-md-3">
-                            <li><p>Participants are requested to assemble 10 minutes prior to the commencement of the event.</p></li>
-                            <li><p> It is a single participant event.</p></li>
-                            <li><p>Questions will be based on movies and Web-series(eg:MCU,DC,Game of thrones etc.).</p></li>
-                            <li><p>Each round contains 25 to 30 questions. </p></li>
-                            <li><p> Every participants should bring their Mobile phones.</p></li>
-                          </ol>
-                      </div>
-                  </div>
-            </div>
-          </div>
+         
       </div>
     </div>
   </div>
