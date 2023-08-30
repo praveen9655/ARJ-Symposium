@@ -26,8 +26,88 @@ function updateCountdown() {
     var opn= document.querySelector('.Regi');
     opn.style.display='block';
   }
+// Form validation start
+const regex_char = /^[a-zA-Z ]+$/;
+const regex_num = /^[0-9]+$/;
+const regex_email=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+const studentName = document.querySelector('#studentName');
+const studentEmail = document.querySelector('#studentEmail');
+const studentPhone = document.querySelector('#studentPhone');
+const collegeName = document.querySelector('#collegeName');
 
-  
+ function liveUpinfo(input, regex, maxLength) {
+  input.addEventListener('input', function () {
+      const value = input.value.trim();
+      input.classList.remove('success', 'error');
+      setSuccess(input);
+
+      if (value.length === 0) {
+        setError(input, 'Field is empty');
+      }
+
+      if (!regex.test(value)) {
+        setError(input, 'Only specific characters are allowed');
+      }
+
+      if (value.length > maxLength) {
+        setError(input, `Maximum ${maxLength} characters allowed`);
+      }
+
+      if (value.length > 0 && regex.test(value) && value.length <= maxLength) {
+        setSuccess(input);
+      }
+    });
+}
+
+const fields = [
+  { input: studentName, regex: regex_char, maxLength: 15, message: 'studentName', },
+  { input: studentEmail, regex: regex_email, maxLength: 30, message: 'studentEmail', },
+  { input: studentPhone, regex: regex_num, maxLength: 10, message: 'studentPhone',  },
+  { input: collegeName, regex: regex_char, maxLength: 50, message: 'collegeName', },
+];
+fields.forEach(({ input, regex, maxLength }) => {
+  liveUpinfo(input, regex, maxLength);
+});
+
+function validateInputs() {
+
+  fields.forEach(({ input, regex, maxLength, message }) => {
+    const value = input.value.trim();
+
+    if (value === '') {
+      setError(input, `${message} is empty`);
+    } else if (!regex.test(value)) {
+      setError(input, `Only numbers are allowed for ${message}`);
+    } else if (value.length > maxLength) {
+      setError(input, `Only ${maxLength} numbers are allowed for ${message}`);
+    } else {
+      setSuccess(input);
+    }
+  });
+
+}
+function setError(element, message) {
+  const inputGroup = element.parentElement;
+  const errorElement = inputGroup.querySelector('.error');
+  inputGroup.classList.add('error1');
+  inputGroup.classList.remove('success');
+  errorElement.innerText = message;
+}
+function setSuccess(element) {
+  const inputGroup = element.parentElement;
+  const errorElement = inputGroup.querySelector('.error');
+  inputGroup.classList.remove('error1');
+  inputGroup.classList.add('success');
+  errorElement.innerText = '';
+}
+
+fields.forEach(({ input, regex, maxLength }) => {
+  liveUpinfo(input, regex, maxLength);
+});
+
+// Form validation end
+
+  //PreviewImg
   const imageInput = document.getElementById("payimg");
   const previewImage = document.getElementById("previewImage");
   
@@ -48,29 +128,21 @@ function updateCountdown() {
       previewImage.style.display = "none";
     }
   });
-  
+
+// Duplicate find 
   async function payOpen(){
+    validateInputs();
   const studentPhone = document.getElementById("studentPhone").value;
   const duplicateCheck = await checkDuplicateStudentPhone(studentPhone);
-  const studentName = document.getElementById("studentName").value;
-  const studentEmail = document.getElementById("studentEmail").value;
-  const collegeName = document.getElementById("collegeName").value;
-  
   if (duplicateCheck) {
+    console.log('err');
     document.querySelector('.errorMessage').style.display='block';
-    document.querySelector('.errorMessage2').style.display='block';
-    document.querySelector('#btnsub').style = ` animation: shake 0.6s;`
 }
 
-else if(studentName == '' || studentEmail == '' || collegeName == ''){
-  document.querySelector('.errEmt').style.display='block';
-}
 else{
   document.querySelector('.errorMessage').style.display='none';
   document.querySelector('.errorMessage2').style.display='none';
   document.querySelector('.payMent').style.display='block';
-  document.querySelector('.errEmt').style.display='none';
-
   document.querySelector('.tXtform').style.display='none';
   document.querySelector('#btnnext').style.display='none';
 }
@@ -96,6 +168,7 @@ var contactFormDB = firebase.database().ref('FormTest');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  validateInputs();
   const studentPhone = document.getElementById("studentPhone").value;
   const duplicateCheck = await checkDuplicateStudentPhone(studentPhone);
 

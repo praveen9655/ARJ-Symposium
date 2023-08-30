@@ -13,12 +13,12 @@
  <body class="bd1">
     <!-- Nav Bar -->
   <nav class="d-flex align-items-center justify-content-between ">
-      <div class="d-flex align-items-center ml-5">
+      <div class="d-flex align-items-center ml-md-5 ml-3 ">
         <img src="ARJ LOGO.png" width="50px" alt="">
         <p class="m-3 d-none d-md-block">ARJ COLLEGE OF ENGINEERING AND TECHNOLOGY</p>
         <p class="m-3 d-block d-md-none">A.R.J</p>
       </div>
-      <p class="m-3 mr-5"> <a target="_blank" href="#" class="nav-link text-light">LOGIN</a></p>
+      <p class="m-3 mr-md-5 mr-2 "> <a target="_blank" href="#" class="nav-link text-light">LOGIN</a></p>
   </nav>
     <!-- Main Container -->
   <div class="container">
@@ -31,7 +31,7 @@
           <h5>Proudly Presents,</h5>
           <b>TechZombie</b>
           <p>Techies from the Department of CSE feel proud to benchmark you all over this massive stage of Technical and Non-Technical world...Time to gear up your shuttles of talent...Get ready folks..</p>
-          <button onclick="RegiOn()" class="  w-50 b-0 mt-3"><a href="#Regi" class="nav-link text-light">Register Now</a></button>
+          <button onclick="RegiOn()" id="regbtn" class="  w-50 b-0 mt-3"><a href="#regbtn" class="nav-link text-light">Register Now</a></button>
       </div>
       <div class="cseLogo col-md-6 d-flex align-items-center order-sm-1 justify-content-center">
           <img src="CSE logo.png">
@@ -45,20 +45,29 @@
        <div class="tXtform">
           <div class="w-100 d-md-flex justify-content-around">
             <div class="Tinput">
-            <label for="studentName">1. Student Name:</label> <br>
-            <input type="text" id="studentName" name="studentName" required><br><br>
-            
-            <label for="studentEmail">2. Student Email:</label> <br>
-            <input type="email" id="studentEmail" name="studentEmail" required><br><br>
-            
-            <label for="studentPhone">3. Student Phone Number:</label> <br>
-            <input type="tel" id="studentPhone" name="studentPhone" required> <br>
-            <div class="errorMessage">
-              <small>This phone number already existing</small>
-            </div><br>
-            
-            <label for="collegeName">4. College Name:</label> <br>
-            <input type="text" id="collegeName" name="collegeName" required><br><br>
+              <div class="input-group d-flex flex-column">
+                <label for="studentName">1. Student Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+                <div class="error text-danger"></div>
+              </div>
+                  <div class="input-group d-flex flex-column  ">
+                    <label for="studentEmail">2. Student Email:</label>
+                    <input type="email"  id="studentEmail" name="studentEmail" required>
+                    <div class="error text-danger"></div>
+                  </div><br>
+                <div class="input-group d-flex flex-column">
+                  <label for="studentPhone">3. Student Phone Number:</label>
+                  <input type="tel" id="studentPhone" name="studentPhone" required>
+                  <div class="error errorphone text-danger"></div>
+                  <div class="errorMessage">
+                    <small>This phone number already existing</small>
+                  </div>
+                </div><br>
+              <div class="input-group d-flex flex-column">
+                <label for="collegeName">4. College Name:</label> 
+                <input type="text" id="collegeName" name="collegeName" required>
+                <div class="error  text-danger"></div><br>
+              </div>
           </div>
           <div class="Rinput">
             <div>
@@ -109,14 +118,13 @@
             <img id="previewImage" src="#" alt="Selected Image" width="50px" style="display: none;">
             <input class="my-3 custom-file-input" type="file" name="payimg" id="payimg"  accept="image/*">
             <p>Upload your payment screenshot</p>
-            <input  type="submit" id="btnsub" value="Submit">
+            <a href="#regbtn"><input type="submit" id="btnsub" value="Submit"></a>
           </div>
         </div>
         <div class="errorMessage2">
           <small>This phone number already existing</small>
         </div>
-        <p class="errEmt" >Please fill the form</p>
-        <input onclick="payOpen()"  type="button" id="btnnext" value="Next">
+        <a href="#regbtn"><input onclick="payOpen()"  type="button" id="btnnext" value="Next"></a>
       </form>
       <div class="loadiv">
         <img id="loading" src="load.svg" alt="">
