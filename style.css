@@ -3,7 +3,53 @@
     padding: 0;
     font-family: 'Barlow', sans-serif;
 }
+.newtime{
+    background: rgba(217, 217, 217, 0.06);
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+    
 
+}
+.time3{
+    margin: 20px 0px;
+
+}
+.t2 {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #05112e;
+    border: 5px solid #E83363 ;
+    background-image: url(bg-texture.png);
+    fill: rgba(217, 217, 217, 0.06);
+    box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    padding: 3%;
+    border-radius: 50%;
+}
+.t2 h1{
+    color: #E83363;
+    font-family: Barlow;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: -5px;
+    line-height: normal;
+}
+.t2 h2{
+    color: #FFF;
+    font-family: Barlow;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+   }
 .input-group.success input{
     border-bottom: 2px solid rgb(10, 212, 10);
 }
@@ -231,7 +277,7 @@ nav{
 }
 
 .proE .Rcard:hover {
-    height: 400px;
+    height: 300px;
 }
 .Rcard h5{
     font-weight: bold;
@@ -311,6 +357,54 @@ footer hr{
     align-items: center;
 }
 @media (max-width : 900px){
+    .newtime{
+        background: rgba(217, 217, 217, 0.06);
+        color: #fff;
+        border-radius: 1rem;
+        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        display: flex;
+        justify-content: space-around;
+        margin: 20px -10px;
+        
+    
+    }
+    .time3{
+        margin: 20px 5px;
+
+    
+    }
+    .t2 {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #05112e;
+        border: 2px solid #E83363 ;
+        background-image: url(bg-texture.png);
+        fill: rgba(217, 217, 217, 0.06);
+        box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        padding: 3%;
+        border-radius: 50%;
+    }
+    .t2 h1{
+        color: #E83363;
+        font-family: Barlow;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: -5px;
+    }
+    .t2 h2{
+        color: #FFF;
+        font-family: Barlow;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+       }
     .cseLogo img{
         width: 150px;
         margin-bottom: 80px;

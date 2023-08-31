@@ -12,13 +12,13 @@ function updateCountdown() {
     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
     document.getElementById('days').textContent = days;
-    document.getElementById('daysMobile').textContent = days;
+    // document.getElementById('daysMobile').textContent = days;
     document.getElementById('hours').textContent = hours;
-    document.getElementById('hoursMobile').textContent = hours;
+    // document.getElementById('hoursMobile').textContent = hours;
     document.getElementById('minutes').textContent = minutes;
-    document.getElementById('minutesMobile').textContent = minutes;
+    // document.getElementById('minutesMobile').textContent = minutes;
     document.getElementById('seconds').textContent = seconds;
-    document.getElementById('secondsMobile').textContent = seconds;
+    // document.getElementById('secondsMobile').textContent = seconds;
   }
   updateCountdown();
   const interval = setInterval(updateCountdown, 1000);
