@@ -1,5 +1,5 @@
 function updateCountdown() {
-    const eventDate = new Date('2023-08-31');
+    const eventDate = new Date('2023-09-31');
     const currentDate = new Date();
     const timeDifference = eventDate - currentDate;
     if (timeDifference <= 0) {
@@ -107,47 +107,56 @@ fields.forEach(({ input, regex, maxLength }) => {
 
 // Form validation end
 
-  //PreviewImg
-  const imageInput = document.getElementById("payimg");
-  const previewImage = document.getElementById("previewImage");
-  
-  imageInput.addEventListener("change", function() {
-    const selectedImage = imageInput.files[0];
-  
-    if (selectedImage) {
-      const reader = new FileReader();
-  
-      reader.onload = function(e) {
-        previewImage.src = e.target.result;
-        previewImage.style.display = "block";
-      };
-  
-      reader.readAsDataURL(selectedImage);
-    } else {
-      previewImage.src = "#";
-      previewImage.style.display = "none";
-    }
-  });
 
 // Duplicate find 
-  async function payOpen(){
-    validateInputs();
+async function payOpen() {
+  const studentName = document.querySelector('#studentName').value;
   const studentPhone = document.getElementById("studentPhone").value;
+  if (studentName === '' || studentPhone === '') {
+    document.querySelector('.tXtform').style.display = 'block';
+    document.querySelector('#btnnext').style.display = 'block';
+    
+    validateInputs();
+    
+    return;
+  }
+  validateInputs();
   const duplicateCheck = await checkDuplicateStudentPhone(studentPhone);
-  if (duplicateCheck) {
-    console.log('err');
-    document.querySelector('.errorMessage').style.display='block';
+  if (duplicateCheck ) {
+      console.log('err');
+      document.querySelector('.errorMessage').style.display = 'block';
+      document.querySelector('.tXtform').style.display = 'block';
+      document.querySelector('#btnnext').style.display = 'block';
+  } else {
+      document.querySelector('.errorMessage').style.display = 'none';
+      document.querySelector('.payMent').style.display = 'block';
+      document.querySelector('.tXtform').style.display = 'none';
+      document.querySelector('#btnnext').style.display = 'none';
+  }
 }
 
-else{
-  document.querySelector('.errorMessage').style.display='none';
-  document.querySelector('.errorMessage2').style.display='none';
-  document.querySelector('.payMent').style.display='block';
-  document.querySelector('.tXtform').style.display='none';
-  document.querySelector('#btnnext').style.display='none';
-}
-}
 
+//PreviewImg
+// const imageInput = document.getElementById("payimg");
+// const previewImage = document.getElementById("previewImage");
+
+// imageInput.addEventListener("change", function() {
+//   const selectedImage = imageInput.files[0];
+
+//   if (selectedImage) {
+//     const reader = new FileReader();
+
+//     reader.onload = function(e) {
+//       previewImage.src = e.target.result;
+//       previewImage.style.display = "block";
+//     };
+
+//     reader.readAsDataURL(selectedImage);
+//   } else {
+//     previewImage.src = "#";
+//     previewImage.style.display = "none";
+//   }
+// });
 //Sheet 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxiGtyhTf8A1jIsKcR3GGbpzigrQ59NDbUqSk4PCCicrTLL8ykYDRUOvYBZZ5Zvud_hlQ/exec'
 
@@ -169,18 +178,17 @@ var contactFormDB = firebase.database().ref('FormTest');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   validateInputs();
-  const studentPhone = document.getElementById("studentPhone").value;
-  const duplicateCheck = await checkDuplicateStudentPhone(studentPhone);
-
-  if (duplicateCheck) {
-      document.querySelector('.errorMessage').style.display='block';
-      document.querySelector('.errorMessage2').style.display='block';
-      document.querySelector('#btnsub').style = `    animation: shake 0.6s;`
-  } else {
+  const TransactionId = document.getElementById("TransactionId").value;
+  const duplicateCheck = await checkDuplicateTransactionId(TransactionId);
+  if (duplicateCheck ) {
+    document.getElementById("dupTid").style.display='block';
+  }  else {
+    document.getElementById("dupTid").style.display='none';
     document.querySelector('.errorMessage').style.display='none';
       const studentName = document.getElementById("studentName").value;
       const studentEmail = document.getElementById("studentEmail").value;
       const collegeName = document.getElementById("collegeName").value;
+      const TransactionId = document.getElementById("TransactionId").value;
       const department = document.querySelector('input[name="department"]:checked').value;
       const yearOfStudying = document.querySelector('input[name="yearOfStudying"]:checked').value;
       
@@ -206,6 +214,7 @@ form.addEventListener('submit', async (e) => {
           yearOfStudying: yearOfStudying,
           technicalEvents: technicalEvents,
           nonTechnicalEvents: nonTechnicalEvents,
+          TransactionId: TransactionId,
       });
 
       document.querySelector("#loading").style.display = 'block';
@@ -249,5 +258,9 @@ form.addEventListener('submit', async (e) => {
 
 async function checkDuplicateStudentPhone(phoneNumber) {
   const snapshot = await contactFormDB.orderByChild("studentPhone").equalTo(phoneNumber).once("value");
+  return snapshot.exists();
+}
+async function checkDuplicateTransactionId(TransactionId) {
+  const snapshot = await contactFormDB.orderByChild("TransactionId").equalTo(TransactionId).once("value");
   return snapshot.exists();
 }

@@ -26,11 +26,11 @@
     <!-- Landing Page -->
     <div class="row d-flex align-items-center justify-content-center  my-5">
       <div class="col-md-6 order-1  home_inside">
-          <h3>REGISTRATION CLOSED</h3>
+          <h3>REGISTRATION OPEN</h3>
           <h5>Department Of CSE</h5>
           <h5>Proudly Presents,</h5>
           <b>TechZombie</b>
-          <p>Techies from the Department of CSE feel proud to benchmark you all over this massive stage of Technical and Non-Technical world...Time to gear up your shuttles of talent...Get ready folks..</p>
+          <p>Members of the Department of Computer Science and Engineering take immense pride in showcasing your capabilities across this vast platform of both technical and non-technical domains. It's time to prepare and harness your reservoirs of talent. Get ready folks..</p>
           <button onclick="RegiOn()" id="regbtn" class="  w-50 b-0 mt-3"><a href="#regbtn" class="nav-link text-light">Register Now</a></button>
       </div>
       <div class="cseLogo col-md-6 d-flex align-items-center order-sm-1 justify-content-center">
@@ -49,7 +49,7 @@
                 <label for="studentName">1. Student Name:</label>
                 <input type="text" id="studentName" name="studentName" required>
                 <div class="error text-danger"></div>
-              </div>
+              </div><br>
                   <div class="input-group d-flex flex-column  ">
                     <label for="studentEmail">2. Student Email:</label>
                     <input type="email"  id="studentEmail" name="studentEmail" required>
@@ -114,15 +114,18 @@
         <div class="payMent">
           <div class="pay d-flex flex-column align-items-center justify-content-center">
             <img src="payment.jpg" width="250px" alt=""> <br>
+            <!-- <p>Upload your payment screenshot</p>
             <label class="custom-file-input-label" for="payimg">Choose a file</label>
             <img id="previewImage" src="#" alt="Selected Image" width="50px" style="display: none;">
-            <input class="my-3 custom-file-input" type="file" name="payimg" id="payimg"  accept="image/*">
-            <p>Upload your payment screenshot</p>
+            <input class="my-3 custom-file-input" type="file" name="payimg" id="payimg"  accept="image/*"> -->
+            <div class="input-group d-flex flex-column">
+              <label for="TransactionId">Transaction Id</label>
+               <input type="text" class="mb-2"  id="TransactionId" name="TransactionId" required>
+               <p id="dupTid">This Transaction Id already existing</p>
+            </div>
+
             <a href="#regbtn"><input type="submit" id="btnsub" value="Submit"></a>
           </div>
-        </div>
-        <div class="errorMessage2">
-          <small>This phone number already existing</small>
         </div>
         <a href="#regbtn"><input onclick="payOpen()"  type="button" id="btnnext" value="Next"></a>
       </form>
@@ -133,7 +136,7 @@
       <div class="success d-flex flex-column align-items-center justify-content-center">
         <img src="correct.png" class="m-5" width="150px" alt="">
         <h2 class="text-center">Your registration was successful!</h2>
-        <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <p class="text-center">Thank you! Your form is submitted successfully..</p>
       </div>
     </div>
     </section>
