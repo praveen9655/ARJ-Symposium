@@ -1,31 +1,54 @@
-function updateCountdown() {
-    const eventDate = new Date('2023-09-31');
-    const currentDate = new Date();
-    const timeDifference = eventDate - currentDate;
-    if (timeDifference <= 0) {
-      clearInterval(interval);
-      return;
-    }
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    document.getElementById('days').textContent = days;
-    // document.getElementById('daysMobile').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    // document.getElementById('hoursMobile').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    // document.getElementById('minutesMobile').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-    // document.getElementById('secondsMobile').textContent = seconds;
-  }
-  updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
   function RegiOn(){
     var opn= document.querySelector('.Regi');
     opn.style.display='block';
   }
+
+$(document).ready(function() {
+  // Get the current timestamp in seconds
+  var currentTimestamp = Math.floor(Date.now() / 1000);
+
+  // Set the end date to September 31, 2023, and convert it to a Unix timestamp
+  var endDate = new Date('2023-09-31');
+  var endTimestamp = Math.floor(endDate.getTime() / 1000);
+  var strDate = new Date('2023-08-31');
+  var strTimestamp = Math.floor(strDate.getTime() / 1000);
+
+  $('.countdown').final_countdown({
+      start: strTimestamp,  // Start from the current time
+      end: endTimestamp,       // Use the target timestamp
+      now: currentTimestamp,
+      selectors: {
+          value_seconds: '.clock-seconds .val',
+          canvas_seconds: 'canvas_seconds',
+          value_minutes: '.clock-minutes .val',
+          canvas_minutes: 'canvas_minutes',
+          value_hours: '.clock-hours .val',
+          canvas_hours: 'canvas_hours',
+          value_days: '.clock-days .val',
+          canvas_days: 'canvas_days'
+      },
+      seconds: {
+          borderColor: '#E83363',
+          borderWidth: '5'
+      },
+      minutes: {
+          borderColor: '#E83363',
+          borderWidth: '5'
+      },
+      hours: {
+          borderColor: '#E83363',
+          borderWidth: '5'
+      },
+      days: {
+          borderColor: '#E83363',
+          borderWidth: '5'
+      }
+  }, function() {
+  });
+});
+
+
 // Form validation start
 const regex_char = /^[a-zA-Z ]+$/;
 const regex_num = /^[0-9]+$/;

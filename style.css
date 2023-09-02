@@ -3,7 +3,62 @@
     padding: 0;
     font-family: 'Barlow', sans-serif;
 }
-.newtime{
+.clock{
+    border-radius: 1rem;
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    background: rgba(217, 217, 217, 0.06);
+    margin: 20px 0px;
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+  }
+  .mainbd {
+      background-color: #05112e;
+  }
+  .clock-canvas {
+    background-color: #05112e;
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.25) inset;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  }
+  .clock-item .inner {
+    height: 0px;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+  }
+  .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+  .val{
+      color: #E83363;
+      font-family: Barlow;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 400;
+      margin-bottom: -5px;
+      line-height: normal;
+  }
+  .type-time{
+      color: #FFF;
+      font-family: Barlow;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+/* .newtime{
     background: rgba(217, 217, 217, 0.06);
     color: #fff;
     border-radius: 1rem;
@@ -49,7 +104,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-   }
+   } */
 .input-group.success input{
     border-bottom: 2px solid rgb(10, 212, 10);
 }
@@ -277,7 +332,7 @@ nav{
 }
 
 .proE .Rcard:hover {
-    height: 300px;
+    height: 350px;
 }
 .Rcard h5{
     font-weight: bold;
@@ -357,54 +412,63 @@ footer hr{
     align-items: center;
 }
 @media (max-width : 900px){
-    .newtime{
-        background: rgba(217, 217, 217, 0.06);
-        color: #fff;
+    
+    .clock{
         border-radius: 1rem;
         box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+        background: rgba(217, 217, 217, 0.06);
+        margin: 20px 0px;
+        padding: 20px 0px;
         display: flex;
+        align-items: center;
         justify-content: space-around;
-        margin: 20px -10px;
         
-    
-    }
-    .time3{
-        margin: 20px 5px;
-
-    
-    }
-    .t2 {
-        width: 70px;
-        height: 70px;
+      }
+      .mainbd {
+          background-color: #05112e;
+      }
+      .clock-canvas {
+        background-color: #05112e;
+        background-image: url(bg-texture.png);
+        box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.25) inset;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      }
+      .clock-item .inner {
+        height: 0px;
+        padding-bottom: 100%;
+        position: relative;
+        width: 100%;
+      }
+      .text{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #05112e;
-        border: 2px solid #E83363 ;
-        background-image: url(bg-texture.png);
-        fill: rgba(217, 217, 217, 0.06);
-        box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-        padding: 3%;
-        border-radius: 50%;
-    }
-    .t2 h1{
-        color: #E83363;
-        font-family: Barlow;
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-bottom: -5px;
-    }
-    .t2 h2{
-        color: #FFF;
-        font-family: Barlow;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-       }
+        margin-top: -50px;
+        position: absolute;
+        top: 80%;
+        width: 100%;
+      }
+      .val{
+          color: #E83363;
+          font-family: Barlow;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 400;
+          margin-bottom: -5px;
+          line-height: normal;
+      }
+      .type-time{
+          color: #FFF;
+          font-family: Barlow;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
     .cseLogo img{
         width: 150px;
         margin-bottom: 80px;
@@ -450,5 +514,6 @@ footer hr{
         text-align: justify;
         font-weight: 500;
     }
+
 
 }

@@ -22,7 +22,6 @@
   </nav>
     <!-- Main Container -->
   <div class="container">
-
     <!-- Landing Page -->
     <div class="row d-flex align-items-center justify-content-center  my-5">
       <div class="col-md-6 order-1  home_inside">
@@ -139,45 +138,65 @@
       </div>
     </div>
     </section>
-
-
-   
-
-
     <!-- Event TimeLeft -->
     <div class="time1">
       <h3>TIME LEFT</h3>
-
-     <div class="newtime">
-        <div class="time3">
-          <div class="t2 text-center">
-            <h1 id="days">43</h1>
-            <h2>DAYS</h2>
-
-          </div>
-        </div>
-        <div class="time3">
-          <div class="t2 text-center">
-            <h1 id="hours">43</h1>
-            <h2>HOURS</h2>
-      
-          </div>
-        </div>
-        <div class="time3">
-          <div class="t2 text-center">
-            <h1 id="minutes">43</h1>
-            <h2  class="d-none d-md-block">MINUTES</h2>
-            <h2 class="d-block d-md-none">MIN</h2>
-          </div>
-        </div>
-        <div class="time3">
-          <div class="t2 text-center">
-            <h1 id="seconds">43</h1>
-            <h2 class="d-none d-md-block">SECONDS</h2>
-            <h2 class="d-block d-md-none">SEC</h2>
-          </div>
-        </div>
-     </div>
+            <div class="clock ">
+              <!-- days --> 
+              <div class="clock-item clock-days countdown-time-value">
+                <div class="wrap">
+                    <div class="inner">
+                        <div id="canvas_days" class="clock-canvas"></div>
+                        <div class="text">
+                            <p class="val">0</p>
+                            <p class="type-days type-time">DAYS</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+  
+              <!-- hours -->
+              <div class="clock-item clock-hours countdown-time-value ">
+                <div class="wrap">
+                    <div class="inner">
+                        <div id="canvas_hours" class="clock-canvas"></div>
+                        <div class="text">
+                            <p class="val">0</p>
+                            <p class="type-hours type-time">HOURS</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+  
+              <!-- minutes -->
+              <div class="clock-item clock-minutes countdown-time-value">
+                <div class="wrap">
+                    <div class="inner">
+                        <div id="canvas_minutes" class="clock-canvas"></div>
+                        <div class="text">
+                            <p class="val">0</p>
+                            <p class="type-minutes type-time">MINUTES</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+  
+              <!-- seconds -->
+              <div class="clock-item clock-seconds countdown-time-value ">
+                <div class="wrap">
+                    <div class="inner">
+                        <div id="canvas_seconds" class="clock-canvas">
+                          <div class="text">
+                        </div>
+                        </div>
+                        <div class="text">
+                            <p class="val">0</p>
+                            <p class="type-seconds type-time">SECONDS</p>
+                        </div>
+                    </div>
+                </div>
+              </div> 
+            </div>
     </div>
     <!-- Pro Event -->
     <div class="proE">
@@ -323,12 +342,15 @@
     <img  class="mx-1"  src="pimg.png" alt="" width="30px">
     <p  class="my-1" >Developed by A.R.J student <a target="_blank" href="https://www.linkedin.com/in/praveen-kumaresan-720653281/">@DevPraveen</a></p>
   </div>
-
   <!-- Bootsrap js link -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Countdown -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
+  <script type="text/javascript" src="https://www.jqueryscript.net/demo/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown/js/kinetic.js"></script> 
+  <script type="text/javascript" src="https://www.jqueryscript.net/demo/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown/jquery.final-countdown.js"></script>
  </body>
 </html>
