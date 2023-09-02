@@ -1,2 +1,2 @@
 # ARJ-Symposium
-My college symposium site
+A.R.J college symposium site
