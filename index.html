@@ -18,10 +18,54 @@
         <p class="m-3 d-none d-md-block">ARJ COLLEGE OF ENGINEERING AND TECHNOLOGY</p>
         <p class="m-3 d-block d-md-none">A.R.J</p>
       </div>
-      <p class="m-3 mr-md-5 mr-2 "> <a href="#Regi" class="nav-link text-light">LOGIN</a></p>
+      <p class="m-3 mr-md-5 mr-2 " id="NavLoginBtn" >LOGIN</p>
   </nav>
+  <div class="newUserD">
+    <section class="NewUser">
+      <div class="logIn">
+        <div class="logIn1">
+          <h2>Log in</h2>
+          <div class="mailIn">
+              <img src="email.svg" alt="">
+              <input type="text" placeholder="E-mail" id="E-mail">
+          </div>
+          <div class="mailIn">
+              <img src="Password.svg" alt="">
+              <input type="password" placeholder="Password" id="Password"><br>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+              <a href="#" id="registerLink">Register</a>
+              <a class="ml-3" href="#">Reset password</a>
+          </div>
+          <button type="submit">Log in</button>
+        </div>
+      </div>
+      <div class="RegeIn">
+          <div class="logIn1">
+            <h2>Register</h2>
+          <div class="mailIn">
+              <img src="email.svg" alt="">
+              <input type="text" placeholder="E-mail" id="U-email">
+          </div>
+          <div class="mailIn">
+              <img src="user.svg" alt="">
+              <input type="text" placeholder="Name" id="U-name">
+          </div>
+          <div class="mailIn">
+              <img src="Password.svg" alt="">
+              <input type="password" placeholder="Password" id="U-Password"><br>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+              <a href="#" id="loginLink">Log in</a>
+          </div>
+          <button type="submit">Register</button>
+          </div>
+      </div>
+  </section>
+  </div>
     <!-- Main Container -->
   <div class="container">
+
     <!-- Landing Page -->
     <div class="row d-flex align-items-center justify-content-center  my-5">
       <div class="col-md-6 order-1  home_inside">
@@ -33,7 +77,7 @@
           <button onclick="RegiOn()" id="regbtn" class="  w-50 b-0 mt-3"><a href="#regbtn" class="nav-link text-light">Register Now</a></button>
       </div>
       <div class="cseLogo col-md-6 d-flex align-items-center order-sm-1 justify-content-center">
-          <img src="CSE logo.png">
+          <img src="CSE logo.png"  width="333px">
       </div>
     </div>
     <!-- Form -->

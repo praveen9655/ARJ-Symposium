@@ -3,6 +3,105 @@
     padding: 0;
     font-family: 'Barlow', sans-serif;
 }
+
+.bd1{
+    background-color: #05112e;
+    background-image: url(bg-texture.png);
+}
+
+.newUserD{
+    display: none;
+}
+.NewUser{
+    width: 100%;
+    height: 100dvh;
+    background-color: #162f6931;
+    box-shadow: 0 50px 100px -20px rgba(50,50,93,.25), 0 30px 60px -30px rgba(0,0,0,.3);
+    z-index: 90;
+    position: fixed;
+    top: 0px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logIn1{
+    width: 350px;
+    height: 400px;
+    -webkit-backdrop-filter: blur(140px);
+    backdrop-filter: blur(140px);
+    background: #2A344D;
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.mailIn {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #e83363;
+}
+.logIn1 input{
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+
+}
+.logIn1 a{
+    color: #E83363;
+    text-decoration: underline;
+}
+.logIn1 button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px ;
+    background-color: #e83363;
+    color: #fff;
+    font-weight: bold;
+}
+
+.NewUser {
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.logIn,
+.RegeIn {
+
+    position: absolute;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.RegeIn {
+    transform: rotateY(180deg);
+}
+
+.login-flip {
+    transform: rotateY(-180deg);
+}
+
+.register-flip {
+    transform: rotateY(0deg);
+}
+
+
+
+/* clock css start */
+.time1 h3{
+    color: #e83363;
+    font-family: 'barlow';
+}
 .clock{
     border-radius: 1rem;
     box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
@@ -57,54 +156,9 @@
       font-weight: 400;
       line-height: normal;
     }
+/* clock css end */
 
-/* .newtime{
-    background: rgba(217, 217, 217, 0.06);
-    color: #fff;
-    border-radius: 1rem;
-    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0px;
-    
-
-}
-.time3{
-    margin: 20px 0px;
-
-}
-.t2 {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #05112e;
-    border: 5px solid #E83363 ;
-    background-image: url(bg-texture.png);
-    fill: rgba(217, 217, 217, 0.06);
-    box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    padding: 3%;
-    border-radius: 50%;
-}
-.t2 h1{
-    color: #E83363;
-    font-family: Barlow;
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 400;
-    margin-bottom: -5px;
-    line-height: normal;
-}
-.t2 h2{
-    color: #FFF;
-    font-family: Barlow;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-   } */
+/* Form css start */
 .input-group.success input{
     border-bottom: 2px solid rgb(10, 212, 10);
 }
@@ -113,13 +167,7 @@
     animation: shake 0.6s;
 }
 
-.bd1{
-    background-color: #05112e;
-    background-image: url(bg-texture.png);
-} .cseLogo img{
-    width: 333px;
-}
-section{
+.container section{
     background-color: hsla(0,0%,94%,.06);
     color: #fff;
     border-radius: 1rem;
@@ -127,7 +175,6 @@ section{
     padding: 20px;
     margin: 20px 0px;
     transition: all 1s;
-    /* overflow: hidden; */
 }
 #form{
     transition: all 1s;
@@ -159,7 +206,7 @@ section{
         transform: translateX(10px);
     }
 }
-section input[type="radio"] {
+.container section input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     width: 15px;
@@ -169,10 +216,10 @@ section input[type="radio"] {
     margin-right: 10px;
     cursor: pointer;
   }
-section input[type="radio"]:checked {
+.container section input[type="radio"]:checked {
     background-color: #e83363;
   }
-section input[type="checkbox"] {
+.container section input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -183,7 +230,7 @@ section input[type="checkbox"] {
     border-radius: 4px;
     margin-right: 10px;
 }
- section input[type="checkbox"]:checked {
+.container section input[type="checkbox"]:checked {
     background-color: #e83363;
   } 
 
@@ -255,20 +302,23 @@ input[type="file"] {
 }
 .tXtform{
     width: 100%;
-    /* display: none; */
 }
 .payMent{
     display: none;
 }
 
+/* Form css end */
+
+/* Nav css start */
 nav p{
     color: #fff;
     font-family: 'barlow';     
     font-size: 25px;
     font-weight: 200;
+    cursor: pointer;
 }
 nav{
-    background-color: rgba(227,228,233,.16);
+    background-color: #e3e4e929;
     box-shadow: 0 50px 100px -20px rgba(50,50,93,.25), 0 30px 60px -30px rgba(0,0,0,.3);
     z-index: 100;
     color: #cce3de;
@@ -278,6 +328,9 @@ nav{
     backdrop-filter: blur(10px);
     
 }
+/* Nav css end */
+
+/* Landing Page css start */
 .home_inside h3 , p , section h2 , label , input{
     color: #949aad;
     font-family: 'barlow';
@@ -303,23 +356,10 @@ nav{
     background-color: #e83363;
 }
 
-.time1 h3{
-    color: #e83363;
-    font-family: 'barlow';
-}
-.time2  {
-    background-color: hsla(0,0%,94%,.06);
-    color: #fff;
-    border-radius: 1rem;
-    box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
-    height: 100px;
-    display: flex;
-    
-}
-.time2  h1 span{
-    color: #e83363;
-    font-family: 'barlow';
-}
+/* Landing Page css end */
+
+/* Event card css start */
+
 .proE,.rules{
     color: #fff;
 }
@@ -343,9 +383,9 @@ nav{
     max-height: 100%;
     padding: 10px;
     border-radius: 1.2rem;
-    background: #f0f0f00f;
     -webkit-backdrop-filter: blur(140px);
     backdrop-filter: blur(140px);
+    background: #f0f0f00f;
     box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
     font-size: clamp(.875rem,.787rem + .376vw,1.125rem);
     color: #949aad;
@@ -363,6 +403,11 @@ nav{
     width: 350px;
     padding: 30px;
 }
+
+/* Event card css end */
+
+/* Technical Issues Contact css start */
+
 .TechCon{
     padding: 1rem;
     border-radius: 1.2rem;
@@ -392,6 +437,9 @@ nav{
     flex-direction: column;
     justify-content: space-between;
 }
+/* Technical Issues Contact css end */
+
+/* footer css start */
 
 footer {
     width: 100%;
@@ -408,13 +456,12 @@ footer hr{
 .watermark{
     padding: 5px;
     background-color: rgb(5, 17, 46);
-    background-color: rgb(18, 31, 61);
-    
     display: flex;
     align-items: center;
 }
 
 
+/* footer css end */
 
 
 @media (max-width : 900px){
@@ -486,21 +533,6 @@ footer hr{
         padding: 10px;
     }
     .time1 h3{
-        color: #e83363;
-        font-family: 'barlow';
-    }
-    .time2  {
-        background-color: hsla(0,0%,94%,.06);
-        color: #fff;
-        border-radius: 1rem;
-        box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
-        height: 100px;
-        
-    }
-    .time2  h1{
-        font-size: 27px;
-    }
-    .time2  h1 span{
         color: #e83363;
         font-family: 'barlow';
     }

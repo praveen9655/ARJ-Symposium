@@ -1,3 +1,43 @@
+const loginForm = document.querySelector('.logIn');
+const registerForm = document.querySelector('.RegeIn');
+const loginLink = document.getElementById('loginLink');
+const registerLink = document.getElementById('registerLink');
+let isLoginFormVisible = true;
+
+function flipForms() {
+    if (isLoginFormVisible) {
+        loginForm.classList.add('login-flip');
+        registerForm.classList.add('register-flip');
+    } else {
+        loginForm.classList.remove('login-flip');
+        registerForm.classList.remove('register-flip');
+    }
+    isLoginFormVisible = !isLoginFormVisible;
+}
+
+loginLink.addEventListener('click', flipForms);
+registerLink.addEventListener('click', flipForms);
+
+flipForms();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const NavLoginBtn = document.querySelector('#NavLoginBtn');
+  const newUserD = document.querySelector('.newUserD');
+  let isDisplayed = false; // Track the current state of newUserD
+
+  NavLoginBtn.addEventListener('click', function () {
+    if (!isDisplayed) {
+      newUserD.style.display = 'block';
+      document.getElementById('NavLoginBtn').innerHTML = 'CLOSE';
+    } else {
+      newUserD.style.display = 'none';
+      document.getElementById('NavLoginBtn').innerHTML = 'LOGIN';
+    }
+
+    isDisplayed = !isDisplayed; // Toggle the state
+  });
+});
+
 
   function RegiOn(){
     var opn= document.querySelector('.Regi');
@@ -84,7 +124,6 @@ const collegeName = document.querySelector('#collegeName');
 
 const fields = [
   { input: studentName, regex: regex_char, maxLength: 15, message: 'studentName', },
-  { input: studentEmail, regex: regex_email, maxLength: 30, message: 'studentEmail', },
   { input: studentPhone, regex: regex_num, maxLength: 10, message: 'studentPhone',  },
   { input: collegeName, regex: regex_char, maxLength: 50, message: 'collegeName', },
 ];
