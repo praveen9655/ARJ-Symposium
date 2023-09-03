@@ -407,10 +407,16 @@ footer hr{
 }
 .watermark{
     padding: 5px;
-    background-color: #05112e;
+    background-color: rgb(5, 17, 46);
+    background-color: rgb(18, 31, 61);
+    
     display: flex;
     align-items: center;
 }
+
+
+
+
 @media (max-width : 900px){
     
     .clock{
