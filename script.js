@@ -1,3 +1,4 @@
+// Login and newUser switch
 const loginForm = document.querySelector('.logIn');
 const registerForm = document.querySelector('.RegeIn');
 const loginLink = document.getElementById('loginLink');
@@ -20,43 +21,47 @@ registerLink.addEventListener('click', flipForms);
 
 flipForms();
 
+// Login form display
 document.addEventListener('DOMContentLoaded', function () {
   const NavLoginBtn = document.querySelector('#NavLoginBtn');
   const newUserD = document.querySelector('.newUserD');
-  let isDisplayed = false; // Track the current state of newUserD
+  let isDisplayed = false; 
 
   NavLoginBtn.addEventListener('click', function () {
     if (!isDisplayed) {
       newUserD.style.display = 'block';
       document.getElementById('NavLoginBtn').innerHTML = 'CLOSE';
+
     } else {
       newUserD.style.display = 'none';
       document.getElementById('NavLoginBtn').innerHTML = 'LOGIN';
     }
-
-    isDisplayed = !isDisplayed; // Toggle the state
+    isDisplayed = !isDisplayed;
   });
 });
 
+// Event form display
+function RegiOn() {
+  var opn = document.querySelector('.Regi');
+  opn.style.display = 'block'; 
+  setTimeout(function () {
+    opn.classList.add('show');
+  }, 10); 
+}
 
-  function RegiOn(){
-    var opn= document.querySelector('.Regi');
-    opn.style.display='block';
-  }
 
+
+// countdown
 $(document).ready(function() {
-  // Get the current timestamp in seconds
   var currentTimestamp = Math.floor(Date.now() / 1000);
-
-  // Set the end date to September 31, 2023, and convert it to a Unix timestamp
   var endDate = new Date('2023-09-31');
   var endTimestamp = Math.floor(endDate.getTime() / 1000);
   var strDate = new Date('2023-08-31');
   var strTimestamp = Math.floor(strDate.getTime() / 1000);
 
   $('.countdown').final_countdown({
-      start: strTimestamp,  // Start from the current time
-      end: endTimestamp,       // Use the target timestamp
+      start: strTimestamp,  
+      end: endTimestamp,   
       now: currentTimestamp,
       selectors: {
           value_seconds: '.clock-seconds .val',
@@ -219,7 +224,9 @@ async function payOpen() {
 //     previewImage.style.display = "none";
 //   }
 // });
-//Sheet 
+
+
+//Sheet and dataBase
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxiGtyhTf8A1jIsKcR3GGbpzigrQ59NDbUqSk4PCCicrTLL8ykYDRUOvYBZZ5Zvud_hlQ/exec'
 
 const form = document.forms['form']
@@ -235,6 +242,70 @@ const form = document.forms['form']
   };
 firebase.initializeApp(firebaseConfig);
 var contactFormDB = firebase.database().ref('FormTest');
+
+
+var userName; // Declare a variable to store the user's name
+
+// Handle registration
+document.querySelector('#registerButton').addEventListener('click', function () {
+  var email = document.querySelector('#U-email').value;
+  var password = document.querySelector('#U-Password').value;
+
+  // Get the user's name from the input field
+  userName = document.querySelector('#U-name').value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(function (userCredential) {
+      document.querySelector(".newUerrR").style.display='none';
+      document.querySelector(".RegiSmsg").innerHTML='Welcome '+userName+' you register successfully';
+      document.querySelector("#regiIn").style.display='none';
+      document.querySelector(".Regisucc").style.display='block';
+      console.log('Register successfully. User Name:', userName);
+    })
+    .catch(function (error) {
+      document.querySelector(".newUerrR").style.display='block';
+      console.error('Registration error:', error);
+    });
+});
+
+// Handle login
+document.querySelector('#loginButton').addEventListener('click', function () {
+  var email = document.querySelector('#E-mail').value;
+  var password = document.querySelector('#Password').value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function (userCredential) {
+      document.querySelector(".newUerr").style.display='none';
+      document.querySelector(".loginSmsg").innerHTML='Welcome '+userName+' you login successfully';
+      document.querySelector(".logIn1").style.display='none';
+      document.querySelector(".loginsucc").style.display='block';
+      console.log('Login successfully. User Name:', userName);
+    })
+    .catch(function (error) {
+      document.querySelector(".newUerr").style.display='block';
+      console.error('Login error:', error);
+    });
+});
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in
+    // Check if the user's display name is available
+    if (user.displayName) {
+      // User's display name is available
+      var userName = user.displayName;
+      console.log('User is logged in. User Name:', userName);
+    } else {
+      // User's display name is not available yet (wait for it)
+      console.log('User is logged in, but the display name is not available yet.');
+    }
+  } else {
+    // User is not signed in
+    console.log('User is not logged in.');
+  }
+});
+
 
 
 form.addEventListener('submit', async (e) => {
@@ -265,8 +336,7 @@ form.addEventListener('submit', async (e) => {
       nonTechnicalEventCheckboxes.forEach(function(checkbox) {
           nonTechnicalEvents.push(checkbox.value);
       });
-
-      const newContactForm = contactFormDB.push();
+      const newContactForm = contactFormDB.child(userName);
       newContactForm.set({
           studentName: studentName,
           studentEmail: studentEmail,

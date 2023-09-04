@@ -37,28 +37,43 @@
               <a href="#" id="registerLink">Register</a>
               <a class="ml-3" href="#">Reset password</a>
           </div>
-          <button type="submit">Log in</button>
+          <p class="newUerr">Error : Email & Password doesn't match </p>
+          <button type="submit" id="loginButton">Log in</button>
         </div>
+        <div class="loginsucc">
+          <div class="loginsucc-style d-flex flex-column align-items-center justify-content-center">
+            <img src="correct.png" width="150px" alt="">
+            <p class="loginSmsg my-3"></p>
+          </div>
+        </div>
+   
       </div>
       <div class="RegeIn">
-          <div class="logIn1">
+          <div class="logIn1" id="regiIn">
             <h2>Register</h2>
-          <div class="mailIn">
-              <img src="email.svg" alt="">
-              <input type="text" placeholder="E-mail" id="U-email">
+            <div class="mailIn">
+                <img src="email.svg" alt="">
+                <input type="text" placeholder="E-mail" id="U-email">
+            </div>
+            <div class="mailIn">
+                <img src="user.svg" alt="">
+                <input type="text" placeholder="Name" id="U-name">
+            </div>
+            <div class="mailIn">
+                <img src="Password.svg" alt="">
+                <input type="password" placeholder="Password" id="U-Password"><br>
+            </div>
+            <div class="d-flex align-items-center justify-content-end">
+                <a href="#" id="loginLink">Log in</a>
+            </div>
+            <p class="newUerrR">Error : Try again </p>
+            <button type="submit" id="registerButton">Register</button>
           </div>
-          <div class="mailIn">
-              <img src="user.svg" alt="">
-              <input type="text" placeholder="Name" id="U-name">
-          </div>
-          <div class="mailIn">
-              <img src="Password.svg" alt="">
-              <input type="password" placeholder="Password" id="U-Password"><br>
-          </div>
-          <div class="d-flex align-items-center justify-content-end">
-              <a href="#" id="loginLink">Log in</a>
-          </div>
-          <button type="submit">Register</button>
+          <div class="Regisucc">
+            <div class="loginsucc-style d-flex flex-column align-items-center justify-content-center">
+              <img src="correct.png" width="150px" alt="">
+              <p class="RegiSmsg my-3"></p>
+            </div>
           </div>
       </div>
   </section>
