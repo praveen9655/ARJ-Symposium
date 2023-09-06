@@ -11,6 +11,9 @@
 .loginsucc, .Regisucc{
     display: none;
 }
+.loginsucc-style{
+    height: 100%;
+}
 .newUserD{
     display: none;
 }
@@ -27,8 +30,10 @@
     align-items: center;
     justify-content: center;
 }
-
-.logIn1, .loginsucc-style{
+.loginsucc,.loadiv,.loadiv2,.Regisucc{
+    height: 100%;
+}
+.logIn,.RegeIn{
     width: 350px;
     height: 400px;
     -webkit-backdrop-filter: blur(140px);
@@ -37,6 +42,10 @@
     box-shadow: 5px 10px 20px 1px rgba(0,0,0,.25);
     border-radius: 20px;
     padding: 25px;
+}
+.logIn1 ,#regiIn{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -273,13 +282,13 @@
     font-weight: bolder;
     background-color: #e83363;
 }
-.loadiv{
+.loadiv,.loadiv2{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#loading{
+#loading,#loading2{
     display: none;
 }
 .loginMain{

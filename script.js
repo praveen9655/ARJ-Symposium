@@ -248,6 +248,8 @@ var userName; // Declare a variable to store the user's name
 
 // Handle registration
 document.querySelector('#registerButton').addEventListener('click', function () {
+  document.querySelector("#loading2").style.display = 'block';
+  document.querySelector("#regiIn").style.display='none';
   var email = document.querySelector('#U-email').value;
   var password = document.querySelector('#U-Password').value;
 
@@ -256,32 +258,71 @@ document.querySelector('#registerButton').addEventListener('click', function () 
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function (userCredential) {
+      document.querySelector("#loading2").style.display = 'none';
+      document.querySelector(".loadiv2").style.display = 'none';
       document.querySelector(".newUerrR").style.display='none';
       document.querySelector(".RegiSmsg").innerHTML='Welcome '+userName+' you register successfully';
       document.querySelector("#regiIn").style.display='none';
       document.querySelector(".Regisucc").style.display='block';
       console.log('Register successfully. User Name:', userName);
+      // Send a verification email to the user
+var user = firebase.auth().currentUser;
+
+user.sendEmailVerification()
+  .then(function() {
+    // Email sent.
+    console.log('Verification email sent. Please check your email inbox.');
+  })
+  .catch(function(error) {
+    // An error happened.
+    console.error('Error sending verification email:', error);
+  });
+// Check user authentication state
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in
+    if (user.emailVerified) {
+      // User's email is verified
+      console.log('User is logged in, and their email is verified.');
+    } else {
+      // User's email is not verified
+      console.log('User is logged in, but their email is not verified. Please check your email inbox.');
+    }
+  } else {
+    // User is not signed in
+    console.log('User is not logged in.');
+  }
+});
+
     })
     .catch(function (error) {
+      document.querySelector("#regiIn").style.display='flex';
       document.querySelector(".newUerrR").style.display='block';
+      document.querySelector("#loading2").style.display = 'none';
       console.error('Registration error:', error);
     });
 });
 
 // Handle login
 document.querySelector('#loginButton').addEventListener('click', function () {
+  document.querySelector("#loading").style.display = 'block';
+  document.querySelector(".logIn1").style.display='none';
   var email = document.querySelector('#E-mail').value;
   var password = document.querySelector('#Password').value;
 
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (userCredential) {
+      document.querySelector("#loading").style.display = 'none';
+      document.querySelector(".loadiv").style.display = 'none';
       document.querySelector(".newUerr").style.display='none';
       document.querySelector(".loginSmsg").innerHTML='Welcome '+userName+' you login successfully';
       document.querySelector(".logIn1").style.display='none';
-      document.querySelector(".loginsucc").style.display='block';
+      document.querySelector(".loginsucc").style.display='flex';
       console.log('Login successfully. User Name:', userName);
     })
     .catch(function (error) {
+      document.querySelector(".logIn1").style.display='flex';
+      document.querySelector("#loading").style.display = 'none';
       document.querySelector(".newUerr").style.display='block';
       console.error('Login error:', error);
     });
