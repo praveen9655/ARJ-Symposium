@@ -8,6 +8,9 @@
     background-color: #05112e;
     background-image: url(bg-texture.png);
 }
+.otpV{
+    display: none;
+}
 .loginsucc, .Regisucc{
     display: none;
 }
@@ -288,7 +291,7 @@
     justify-content: center;
     align-items: center;
 }
-#loading,#loading2{
+#loading1,#loading2{
     display: none;
 }
 .loginMain{

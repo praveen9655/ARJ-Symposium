@@ -204,26 +204,26 @@ async function payOpen() {
 
 
 //PreviewImg
-// const imageInput = document.getElementById("payimg");
-// const previewImage = document.getElementById("previewImage");
+const imageInput = document.getElementById("payimg");
+const previewImage = document.getElementById("previewImage");
 
-// imageInput.addEventListener("change", function() {
-//   const selectedImage = imageInput.files[0];
+imageInput.addEventListener("change", function() {
+  const selectedImage = imageInput.files[0];
 
-//   if (selectedImage) {
-//     const reader = new FileReader();
+  if (selectedImage) {
+    const reader = new FileReader();
 
-//     reader.onload = function(e) {
-//       previewImage.src = e.target.result;
-//       previewImage.style.display = "block";
-//     };
+    reader.onload = function(e) {
+      previewImage.src = e.target.result;
+      previewImage.style.display = "block";
+    };
 
-//     reader.readAsDataURL(selectedImage);
-//   } else {
-//     previewImage.src = "#";
-//     previewImage.style.display = "none";
-//   }
-// });
+    reader.readAsDataURL(selectedImage);
+  } else {
+    previewImage.src = "#";
+    previewImage.style.display = "none";
+  }
+});
 
 
 //Sheet and dataBase
@@ -243,115 +243,35 @@ const form = document.forms['form']
 firebase.initializeApp(firebaseConfig);
 var contactFormDB = firebase.database().ref('FormTest');
 
-
-var userName; // Declare a variable to store the user's name
-
-// Handle registration
-document.querySelector('#registerButton').addEventListener('click', function () {
-  document.querySelector("#loading2").style.display = 'block';
-  document.querySelector("#regiIn").style.display='none';
-  var email = document.querySelector('#U-email').value;
-  var password = document.querySelector('#U-Password').value;
-
-  // Get the user's name from the input field
-  userName = document.querySelector('#U-name').value;
-
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function (userCredential) {
-      document.querySelector("#loading2").style.display = 'none';
-      document.querySelector(".loadiv2").style.display = 'none';
-      document.querySelector(".newUerrR").style.display='none';
-      document.querySelector(".RegiSmsg").innerHTML='Welcome '+userName+' you register successfully';
-      document.querySelector("#regiIn").style.display='none';
-      document.querySelector(".Regisucc").style.display='block';
-      console.log('Register successfully. User Name:', userName);
-      // Send a verification email to the user
-var user = firebase.auth().currentUser;
-
-user.sendEmailVerification()
-  .then(function() {
-    // Email sent.
-    console.log('Verification email sent. Please check your email inbox.');
-  })
-  .catch(function(error) {
-    // An error happened.
-    console.error('Error sending verification email:', error);
-  });
-// Check user authentication state
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in
-    if (user.emailVerified) {
-      // User's email is verified
-      console.log('User is logged in, and their email is verified.');
+  // Function to handle image upload
+  function uploadImage() {
+    const fileInput = document.getElementById('payimg');
+    const selectedFile = fileInput.files[0];
+  
+    if (selectedFile) {
+      const storageRef = firebase.storage().ref();
+      const imageRef = storageRef.child('Payment SS/' + selectedFile.name);
+  
+      imageRef.put(selectedFile).then((snapshot) => {
+        console.log('Image uploaded successfully!');
+        imageRef.getDownloadURL().then((url) => {
+          console.log('Image URL:', url);
+          const formData = new FormData(form);
+          formData.append('Payment', url);
+        });
+      }).catch((error) => {
+        console.error('Error uploading image:', error);
+      });
     } else {
-      // User's email is not verified
-      console.log('User is logged in, but their email is not verified. Please check your email inbox.');
+      console.error('No file selected.');
     }
-  } else {
-    // User is not signed in
-    console.log('User is not logged in.');
   }
-});
-
-    })
-    .catch(function (error) {
-      document.querySelector("#regiIn").style.display='flex';
-      document.querySelector(".newUerrR").style.display='block';
-      document.querySelector("#loading2").style.display = 'none';
-      console.error('Registration error:', error);
-    });
-});
-
-// Handle login
-document.querySelector('#loginButton').addEventListener('click', function () {
-  document.querySelector("#loading").style.display = 'block';
-  document.querySelector(".logIn1").style.display='none';
-  var email = document.querySelector('#E-mail').value;
-  var password = document.querySelector('#Password').value;
-
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function (userCredential) {
-      document.querySelector("#loading").style.display = 'none';
-      document.querySelector(".loadiv").style.display = 'none';
-      document.querySelector(".newUerr").style.display='none';
-      document.querySelector(".loginSmsg").innerHTML='Welcome '+userName+' you login successfully';
-      document.querySelector(".logIn1").style.display='none';
-      document.querySelector(".loginsucc").style.display='flex';
-      console.log('Login successfully. User Name:', userName);
-    })
-    .catch(function (error) {
-      document.querySelector(".logIn1").style.display='flex';
-      document.querySelector("#loading").style.display = 'none';
-      document.querySelector(".newUerr").style.display='block';
-      console.error('Login error:', error);
-    });
-});
-
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in
-    // Check if the user's display name is available
-    if (user.displayName) {
-      // User's display name is available
-      var userName = user.displayName;
-      console.log('User is logged in. User Name:', userName);
-    } else {
-      // User's display name is not available yet (wait for it)
-      console.log('User is logged in, but the display name is not available yet.');
-    }
-  } else {
-    // User is not signed in
-    console.log('User is not logged in.');
-  }
-});
-
-
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   validateInputs();
+  uploadImage();
+
   const TransactionId = document.getElementById("TransactionId").value;
   const duplicateCheck = await checkDuplicateTransactionId(TransactionId);
   if (duplicateCheck ) {
@@ -360,6 +280,7 @@ form.addEventListener('submit', async (e) => {
     document.getElementById("dupTid").style.display='none';
     document.querySelector('.errorMessage').style.display='none';
       const studentName = document.getElementById("studentName").value;
+      const studentPhone = document.getElementById("studentPhone").value;
       const studentEmail = document.getElementById("studentEmail").value;
       const collegeName = document.getElementById("collegeName").value;
       const TransactionId = document.getElementById("TransactionId").value;
@@ -377,7 +298,7 @@ form.addEventListener('submit', async (e) => {
       nonTechnicalEventCheckboxes.forEach(function(checkbox) {
           nonTechnicalEvents.push(checkbox.value);
       });
-      const newContactForm = contactFormDB.child(userName);
+      const newContactForm = contactFormDB.push();
       newContactForm.set({
           studentName: studentName,
           studentEmail: studentEmail,
@@ -390,7 +311,7 @@ form.addEventListener('submit', async (e) => {
           TransactionId: TransactionId,
       });
 
-      document.querySelector("#loading").style.display = 'block';
+      document.querySelector("#loading1").style.display = 'block';
       document.querySelector("#form").style.display = 'none';
       document.querySelector("#success").style.display = 'none';
   
@@ -418,7 +339,7 @@ form.addEventListener('submit', async (e) => {
           if (data.result === 'success') {
               console.log("Thank you! Your form is submitted successfully.");
               document.querySelector("#form").style.display = 'none';
-              document.querySelector("#loading").style.display = 'none';
+              document.querySelector("#loading1").style.display = 'none';
               document.querySelector("#success").style.display = 'block';
           } else {
               console.error('Error!', data.error);
