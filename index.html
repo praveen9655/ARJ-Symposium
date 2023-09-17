@@ -2,9 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="interest-cohort" content="()"/>
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=(), user-id=()" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ARJ SYMPOSIUM</title>
@@ -24,6 +21,9 @@
       <p class="m-3 mr-md-5 mr-2 " id="NavLoginBtn" >LOGIN</p>
   </nav>
   <div class="newUserD">
+    <div class="unavaliable">
+      <h1 >Temporarily unavailable !!!</h1>
+    </div>
     <section class="NewUser">
       <div class="logIn">
       
@@ -43,7 +43,7 @@
               <a class="ml-3" href="#">Reset password</a>
           </div>
           <p class="newUerr">Error : Email & Password doesn't match </p>
-          <button type="submit" id="loginButton">Log in</button>
+          <button type="submit" id="loginButton" class="btn" disabled>Log in</button>
         </div>
         <div class="loadiv">
         <img id="loading" src="load.svg" alt="">
@@ -75,7 +75,7 @@
                 <a href="#" id="loginLink">Log in</a>
             </div>
             <p class="newUerrR">Error : Try again </p>
-            <button type="submit" id="registerButton">Register</button>
+            <button type="submit" id="registerButton" disabled class="btn">Register</button>
           </div>
           <div class="loadiv2">
             <img id="loading2" src="load.svg" alt="">
