@@ -25,20 +25,55 @@ flipForms();
 document.addEventListener('DOMContentLoaded', function () {
   const NavLoginBtn = document.querySelector('#NavLoginBtn');
   const newUserD = document.querySelector('.newUserD');
-  let isDisplayed = false; 
+  const signOutButton = document.querySelector('#signOutButton'); // Get the sign-out button element
+
+  let isDisplayed = false;
+
+  // Check the user's login state
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is logged in
+      NavLoginBtn.innerHTML = user.displayName || 'USERNAME';
+      // You can also provide a default value like 'USERNAME' if display name is not available.
+    } else {
+      // User is not logged in
+      NavLoginBtn.innerHTML = 'LOGIN';
+    }
+  });
 
   NavLoginBtn.addEventListener('click', function () {
     if (!isDisplayed) {
       newUserD.style.display = 'block';
-      document.getElementById('NavLoginBtn').innerHTML = 'CLOSE';
-
+      if (firebase.auth().currentUser) {
+        NavLoginBtn.innerHTML = firebase.auth().currentUser.displayName || 'USERNAME';
+      } else {
+        NavLoginBtn.innerHTML = 'CLOSE';
+      }
     } else {
       newUserD.style.display = 'none';
-      document.getElementById('NavLoginBtn').innerHTML = 'LOGIN';
+      if (firebase.auth().currentUser) {
+        NavLoginBtn.innerHTML = firebase.auth().currentUser.displayName || 'USERNAME';
+      } else {
+        NavLoginBtn.innerHTML = 'LOGIN';
+      }
     }
     isDisplayed = !isDisplayed;
   });
+
+  // Add a click event listener to the sign-out button
+  signOutButton.addEventListener('click', function () {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful
+      console.log('User signed out');
+      // You can perform additional actions here if needed
+    }).catch(function(error) {
+      // An error happened
+      console.error('Sign-out error:', error);
+    });
+  });
 });
+
+
 
 // Event form display
 function RegiOn() {
@@ -266,6 +301,166 @@ var contactFormDB = firebase.database().ref('FormTest');
       console.error('No file selected.');
     }
   }
+
+
+
+
+  var userName;
+
+ // Declare a variable to store the user's name
+
+// Handle registration
+document.querySelector('#registerButton').addEventListener('click', function () {
+  document.querySelector("#loading2").style.display = 'block';
+  document.querySelector("#regiIn").style.display='none';
+  var email = document.querySelector('#U-email').value;
+  var password = document.querySelector('#U-Password').value;
+
+  // Get the user's name from the input field
+  userName = document.querySelector('#U-name').value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(function (userCredential) {
+
+      user.sendEmailVerification()
+      .then(function() {
+        // Email sent.
+        console.log('Verification email sent. Please check your email inbox.');
+      })
+      .catch(function(error) {
+        // An error happened.
+        console.error('Error sending verification email:', error);
+      });
+
+      userName = document.querySelector('#U-name').value; // Get the user's name from the input field
+
+      // Set the display name for the user
+      userCredential.user.updateProfile({
+        displayName: userName
+      })
+      .then(function() {
+        console.log('Display name set successfully.');
+      })
+      .catch(function(error) {
+        console.error('Error setting display name:', error);
+      });
+  
+  
+      document.querySelector("#loading2").style.display = 'none';
+      document.querySelector(".loadiv2").style.display = 'none';
+      document.querySelector(".newUerrR").style.display='none';
+      document.querySelector(".RegiSmsg").innerHTML='Welcome '+userName+' you register successfully';
+      document.querySelector("#regiIn").style.display='none';
+      document.querySelector(".Regisucc").style.display='block';
+      console.log('Register successfully. User Name:', userName);
+      // Send a verification email to the user
+var user = firebase.auth().currentUser;
+
+user.sendEmailVerification()
+  .then(function() {
+    // Email sent.
+    console.log('Verification email sent. Please check your email inbox.');
+  })
+  .catch(function(error) {
+    // An error happened.
+    console.error('Error sending verification email:', error);
+  });
+// Check user authentication state
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in
+    if (user.emailVerified) {
+      // User's email is verified
+      console.log('User is logged in, and their email is verified.');
+    } else {
+      // User's email is not verified
+      console.log('User is logged in, but their email is not verified. Please check your email inbox.');
+    }
+  } else {
+    // User is not signed in
+    console.log('User is not logged in.');
+  }
+});
+
+    })
+    .catch(function (error) {
+      document.querySelector("#regiIn").style.display='flex';
+      document.querySelector(".newUerrR").style.display='block';
+      document.querySelector("#loading2").style.display = 'none';
+      console.error('Registration error:', error);
+    });
+});
+
+// Handle login
+document.querySelector('#loginButton').addEventListener('click', function () {
+  document.querySelector("#loading").style.display = 'block';
+  document.querySelector(".logIn1").style.display='none';
+  var email = document.querySelector('#E-mail').value;
+  var password = document.querySelector('#Password').value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function (userCredential) {
+      var user = userCredential.user;
+      if (user.emailVerified) {
+        // User's email is verified, allow them to log in
+        console.log('Login successfully. User Name:', user.displayName);
+      } else {
+        // User's email is not verified, display an error message
+        console.error('Login error: Email not verified. Please check your email inbox and verify your email.');
+        // Optionally, you can also sign the user out to prevent further access
+        firebase.auth().signOut();
+      }
+
+
+    if (user) {
+      var userName = user.displayName;
+      // Use the user and userName as needed
+      // ...
+    } else {
+      console.error('User not found.');
+    }
+      document.querySelector("#loading").style.display = 'none';
+      document.querySelector(".loadiv").style.display = 'none';
+      document.querySelector(".newUerr").style.display='none';
+      document.querySelector(".loginSmsg").innerHTML='Welcome '+userName+' you login successfully';
+      document.querySelector(".logIn1").style.display='none';
+      document.querySelector(".loginsucc").style.display='flex';
+      console.log('Login successfully. User Name:', userName);
+      document.getElementById('NavLoginBtn').innerHTML = userName;
+    })
+    .catch(function (error) {
+      document.querySelector(".logIn1").style.display='flex';
+      document.querySelector("#loading").style.display = 'none';
+      document.querySelector(".newUerr").style.display='block';
+      console.error('Login error:', error);
+    });
+});
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in
+    // Check if the user's display name is available
+    if (user.displayName) {
+      // User's display name is available
+      var userName = user.displayName;
+      console.log('User is logged in. User Name:', userName);
+    } else {
+      // User's display name is not available yet (wait for it)
+      console.log('User is logged in, but the display name is not available yet.');
+    }
+  } else {
+    // User is not signed in
+    console.log('User is not logged in.');
+  }
+});
+
+
+
+
+
+
+
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();

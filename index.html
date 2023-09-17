@@ -23,8 +23,10 @@
   <div class="newUserD">
     <section class="NewUser">
       <div class="logIn">
+      
         <div class="logIn1">
           <h2>Log in</h2>
+          
           <div class="mailIn">
               <img src="email.svg" alt="">
               <input type="text" placeholder="E-mail" id="E-mail">
@@ -40,6 +42,9 @@
           <p class="newUerr">Error : Email & Password doesn't match </p>
           <button type="submit" id="loginButton">Log in</button>
         </div>
+        <div class="loadiv">
+        <img id="loading" src="load.svg" alt="">
+        </div>
         <div class="loginsucc">
           <div class="loginsucc-style d-flex flex-column align-items-center justify-content-center">
             <img src="correct.png" width="150px" alt="">
@@ -47,17 +52,13 @@
           </div>
         </div>
       </div>
-
+      
       <div class="RegeIn">
           <div class="logIn1" id="regiIn">
             <h2>Register</h2>
             <div class="mailIn">
                 <img src="email.svg" alt="">
                 <input type="text" placeholder="E-mail" id="U-email">
-            </div>
-            <div class="mailIn">
-              <img src="phone.svg" alt="">
-              <input type="text" placeholder="Phone" id="U-phone">
             </div>
             <div class="mailIn">
                 <img src="user.svg" alt="">
@@ -71,15 +72,11 @@
                 <a href="#" id="loginLink">Log in</a>
             </div>
             <p class="newUerrR">Error : Try again </p>
-            
             <button type="submit" id="registerButton">Register</button>
-            
           </div>
-          <div class="otpV">
-            <label for="otp">Enter OTP:</label>
-            <input type="text" id="otp" />
-            <button onclick="verifyOTP()">Verify</button>
-          </div>
+          <div class="loadiv2">
+            <img id="loading2" src="load.svg" alt="">
+            </div>
           <div class="Regisucc">
             <div class="loginsucc-style d-flex flex-column align-items-center justify-content-center">
               <img src="correct.png" width="150px" alt="">
@@ -87,7 +84,10 @@
             </div>
           </div>
       </div>
-      <div id="recaptcha-container"></div>
+      <div class="profile">
+        <h1>HI </h1>
+        <button id="signOutButton">Sign Out</button>
+      </div>
     </section>
   </div>
     <!-- Main Container -->
@@ -100,7 +100,7 @@
           <h5>Department Of CSE</h5>
           <h5>Proudly Presents,</h5>
           <b>TechZombie</b>
-          <p>Members of the Department of Computer Science and Engineering take immense pride in showcasing your capabilities across this vast platform of both technical and non-technical domains. It's time to prepare and harness your reservoirs of talent. Get ready folks..</p>
+          <p id="regbtn2">Members of the Department of Computer Science and Engineering take immense pride in showcasing your capabilities across this vast platform of both technical and non-technical domains. It's time to prepare and harness your reservoirs of talent. Get ready folks..</p>
           <button onclick="RegiOn()" id="regbtn" class="  w-50 b-0 mt-3"><a href="#regbtn" class="nav-link text-light">Register Now</a></button>
       </div>
       <div class="cseLogo col-md-6 d-flex align-items-center order-sm-1 justify-content-center">
@@ -194,6 +194,7 @@
             </div>
 
             <a href="#regbtn"><input type="submit" id="btnsub" value="Submit"></a>
+
           </div>
         </div>
         <a href="#regbtn"><input onclick="payOpen()"  type="button" id="btnnext" value="Next"></a>
