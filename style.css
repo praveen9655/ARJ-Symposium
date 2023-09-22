@@ -394,6 +394,9 @@ nav{
     color: #fff;
     background-color: #e83363;
 }
+.home_inside button a{
+    font-weight: bolder;
+}
 
 /* Landing Page css end */
 
