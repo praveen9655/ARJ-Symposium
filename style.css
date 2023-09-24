@@ -392,11 +392,15 @@ nav{
     border: 0;
     border-radius: 20px;
     color: #fff;
+    padding: 10px 25px;
     background-color: #e83363;
 }
 .home_inside button a{
     font-weight: bolder;
+    color: #ffffff;
+    margin: 10px;
 }
+
 
 /* Landing Page css end */
 
